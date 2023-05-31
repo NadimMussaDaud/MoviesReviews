@@ -17,7 +17,7 @@ public class Main {
     private static final String USER_EXISTS = "User %s already exists!\n";
     private static final String USER_REGISTERED = "User %s was registered as %s.\n";
 
-    public static void main(String[] args) throws NoUserException {
+    public static void main(String[] args) throws NoUserException, NotAdministratorException {
         commands();
     }
 
@@ -37,7 +37,7 @@ public class Main {
     /**
      * Main command, reads command input and calls the appropriate method.
      */
-    private static void commands() throws NoUserException {
+    private static void commands() throws NoUserException, NotAdministratorException {
         Scanner in = new Scanner(System.in);
         CineReviews system = new CineReviewsClass();
 
@@ -120,7 +120,7 @@ public class Main {
     /**
      * Registers a new movie
      */
-    private static void movie(Scanner in, CineReviews system) throws NoUserException {
+    private static void movie(Scanner in, CineReviews system) throws NoUserException, NotAdministratorException {
         String admin = in.next();
         String password = in.nextLine().trim();
         String title = in.nextLine().trim();
@@ -145,7 +145,6 @@ public class Main {
             cast[i] = in.nextLine().trim();
         }
 
-
         try {
             if (!(system.hasPerson(admin) && system.isAdmin(admin))) {
                 System.out.printf("Admin %s does not exist!\n", admin);
@@ -157,8 +156,8 @@ public class Main {
                 system.addMovie(title, director, duration, certification, year, genres, cast);
                 System.out.printf("Show %s was added by %s.\n", title, admin);
             }
-        } catch ( (NoUserException e) || (NotAdministratorException e) ){
-            System.out.printf("Admin %s does not exist!\n", admin);
+        } catch (NoUserException | NotAdministratorException e) {
+            System.out.println(e.getMessage());
         }
     }
 
