@@ -1,7 +1,6 @@
 import Exceptions.UserException;
 
 public interface Person {
-    String getName();
 
     boolean isAdministrator();
 

@@ -5,6 +5,7 @@ public class AdminClass extends PersonAbstract<Show>{
 
     private final String password;
     public AdminClass(String password) {
+        super();
         this.password = password;
     }
 

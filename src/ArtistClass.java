@@ -1,7 +1,7 @@
 public class ArtistClass extends PersonAbstract<Show> {
     private String name, birthday,birthplace;
-    public ArtistClass(String name, String birthday, String birthplace) {
-        super(name);
+    public ArtistClass(String birthday, String birthplace) {
+        super();
         this.birthday = birthday;
         this.birthplace = birthplace;
     }

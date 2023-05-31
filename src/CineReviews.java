@@ -9,12 +9,10 @@ import java.util.Map;
 public interface CineReviews {
     boolean hasType(String type);
 
-    boolean hasPerson(String name);
-
     void register(String type, String name, String password) throws CineReviewsException;
 
     boolean hasUsers();
-    Iterator<Map.Entry<String, User>> getUsers() throws CineReviewsException;
+    Iterator<Map.Entry<String, Person>> getPersons() throws CineReviewsException;
 
     boolean isAdmin(String admin) throws CineReviewsException ;
 

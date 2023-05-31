@@ -9,13 +9,12 @@ public class CineReviewsClass implements CineReviews{
     private static final String NO_USERS = "No users registered.";
     private static final String ADMIN_NOT_FOUND = "Admin %s does not exist!";
     private static final String SHOW_EXISTS = "Show %s already exists!";
-    private LinkedList<Person> users;
     private LinkedList<Show> shows;
-    private final SortedMap<String, User> users;
+    private final SortedMap<String, Person> persons;
 
     public CineReviewsClass(){
         shows = new LinkedList<>();
-        users = new TreeMap<>();
+        persons = new TreeMap<>();
     }
 
     @Override
@@ -25,17 +24,17 @@ public class CineReviewsClass implements CineReviews{
     @Override
     public void register(String type, String name, String password) throws CineReviewsException{
         if(!hasType(type)) throw new CineReviewsException(UNKNOWN_TYPE);
-        if(hasPerson(name)) throw new CineReviewsException(String.format(USER_EXISTS, name));
+        if(persons.containsKey(name)) throw new CineReviewsException(String.format(USER_EXISTS, name));
 
         if(password!=null){
-            users.put(name, new AdminClass(password));
+            persons.put(name, new AdminClass(password));
         }
         else{
             if(type.equals("audience")){
-                users.put(name, new AudienceClass());
+                persons.put(name, new AudienceClass());
             }
             else{
-                users.put(name, new CriticClass());
+                persons.put(name, new CriticClass());
             }
         }
 
@@ -43,38 +42,32 @@ public class CineReviewsClass implements CineReviews{
 
     @Override
     public boolean hasUsers() {
-        return users.size()==0;
+        return persons.size()==0;
     }
 
     @Override
-    public Iterator<Map.Entry<String, User>> getUsers() throws CineReviewsException{
+    public Iterator<Map.Entry<String, Person>> getPersons() throws CineReviewsException{
         if(!hasUsers()) throw new CineReviewsException(NO_USERS);
-        return users.entrySet().iterator();
+        return persons.entrySet().iterator();
     }
 
     @Override
-    /**
-     * @param admin the name of the user
-     * @return true if the user is an administrator
-     * @throws NoUserException if the user does not exist
-     * @throws NotAdministratorException if the user is not an administrator
-     */
     public boolean isAdmin(String admin) throws CineReviewsException {
-        if(!users.containsKey(admin))
+        if(!persons.containsKey(admin))
             throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, admin));
-        if(!users.get(admin).isAdministrator())
+        if(!persons.get(admin).isAdministrator())
             throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, admin));
 
-        return users.get(admin).isAdministrator();
+        return persons.get(admin).isAdministrator();
     }
 
     public void authenticate(String name, String password) throws CineReviewsException, UserException{
-        if(!hasPerson(name))
+        if(!persons.containsKey(name))
             throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, name));
-        User u = users.get(name);
-        if(!u.isAdministrator())
+        Person p = persons.get(name);
+        if(!p.isAdministrator())
             throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, name));
-        u.authenticate(password);
+        p.authenticate(password);
     }
 
     @Override
@@ -91,37 +84,25 @@ public class CineReviewsClass implements CineReviews{
         //tirar de users todos os artistas recém criados e guardar num array de users
         LinkedList<Person> cast2 = new LinkedList<>();
         for(String a : cast){
-            cast2.add(getUser(a));
+            cast2.add(persons.get(a));
         }
-        Person director2 = getUser(director);
+        Person director2 = persons.get(director);
         shows.add(new MovieClass(title,director2,duration,certification,year,genres,cast2));
     }
+
     private void addArtist(String name, String birthplace, String birthday) throws NoUserException{
-        if(!hasPerson(name))
-            users.add(new ArtistClass(name,birthplace,birthday));
+        if(!persons.containsKey(name))
+            persons.put(name, new ArtistClass(birthplace,birthday));
         else throw new NoUserException();
     }
 
-    /**
-     * @param name
-     * @param birthplace
-     * @param birthday
-     */
+
     public void addArtistInfo(String name, String birthplace, String birthday) {
         try {
             addArtist(name, birthplace, birthday);
         } catch (NoUserException e) {
-            if (getUser(name).isArtist())
-                ((ArtistClass) getUser(name)).addInfo(birthplace, birthday);
+            if (persons.get(name).isArtist())
+                ((ArtistClass) persons.get(name)).addInfo(birthplace, birthday);
         }
-    }
-
-        private Person getUser(String name){
-        for(Person u : users){
-            if(u.getName().equals(name)){
-                return u;
-            }
-        }
-        return null;
     }
 }
