@@ -22,8 +22,8 @@ Funcionalidade:
 7. SHOWS() "done" CONFLICT
 8. ARTIST() Nadim
 9. CREDITS()
-10. REVIEW() Lucas
-11. REVIEWS() Lucas
+10. REVIEW() **DONE**
+11. REVIEWS() **DONE**
 12. GENRE()
 13. RELEASED()
 14. AVOIDERS()
