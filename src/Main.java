@@ -2,6 +2,7 @@
  * Autores: Lucas e Nadim Mussá Daud
  */
 
+import Exceptions.CineReviewsException;
 import Exceptions.NoUserException;
 import Exceptions.NotAdministratorException;
 
@@ -11,7 +12,7 @@ import java.util.Scanner;
 public class Main {
 
     //MESSAGES
-    private static final  String  EXIT_MESSAGE = "Bye!";
+    private static final String EXIT_MESSAGE = "Bye!";
     private static final String UNKNOWN_COMMAND_FORMAT = "%s %s\n";
     private static final String UNKNOWN_TYPE = "Unknown user type!";
     private static final String USER_EXISTS = "User %s already exists!\n";
@@ -22,8 +23,8 @@ public class Main {
     }
 
     /**
-     * @returns the command with the given name or UNKNOWN if the command does not exist
      * @param command the name of the command
+     * @returns the command with the given name or UNKNOWN if the command does not exist
      */
     private static Commands getCommand(String command) {
         for (Commands c : Commands.values()) {
@@ -44,9 +45,9 @@ public class Main {
         Commands command;
         do {
             command = getCommand(in.next().toLowerCase());
-            switch(command){
+            switch (command) {
                 case HELP -> help();
-                case UNKNOWN -> System.out.printf(UNKNOWN_COMMAND_FORMAT,command.getName(), command.getDescription());
+                case UNKNOWN -> System.out.printf(UNKNOWN_COMMAND_FORMAT, command.getName(), command.getDescription());
                 case REGISTER -> register(in, system);
                 case USERS -> users(system);
                 case MOVIE -> movie(in, system);
@@ -69,30 +70,30 @@ public class Main {
             }
         }
     }
+
     /**
      * Prints the exit message
      */
     private static void exit() {
         System.out.println(EXIT_MESSAGE);
     }
+
     private static void register(Scanner in, CineReviews system) {
         String type = in.next().toLowerCase();
         String name = in.next();
-
         String password = null;
+
         if (type.equals("admin")) {
             password = in.nextLine().trim();
         } else {
             in.nextLine();
         }
 
-        if (!system.hasType(type)) {
-            System.out.println(UNKNOWN_TYPE);
-        } else if (system.hasPerson(name)) {
-            System.out.printf(USER_EXISTS, name);
-        } else{
+        try {
             system.register(type, name, password);
-            System.out.printf(USER_REGISTERED,name,type);
+            System.out.printf(USER_REGISTERED, name, type);
+        } catch (CineReviewsException c) {
+            System.out.println(c.getMessage());
         }
 
     }
@@ -101,10 +102,7 @@ public class Main {
      * Prints the users
      */
     private static void users(CineReviews system) {
-
-        if (system.hasUsers()) {
-            System.out.println("No users registered.");
-        } else {
+        try {
             System.out.println("All registered users:");
             Iterator<User> it = system.getUsers();
             while (it.hasNext()) {
@@ -114,6 +112,8 @@ public class Main {
                 else
                     System.out.printf("User %s has posted %d reviews\n", user.getName(), user.numberUploads());
             }
+        } catch (CineReviewsException c){
+            System.out.println(c.getMessage());
         }
     }
 
@@ -157,7 +157,7 @@ public class Main {
                 system.addMovie(title, director, duration, certification, year, genres, cast);
                 System.out.printf("Show %s was added by %s.\n", title, admin);
             }
-        } catch ( (NoUserException e) || (NotAdministratorException e) ){
+        } catch (Exception e) {
             System.out.printf("Admin %s does not exist!\n", admin);
         }
     }

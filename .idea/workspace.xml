@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="85163092-5db6-49d4-981b-52d794057ea1" name="Changes" comment="Test1 working">
-      <change afterPath="$PROJECT_DIR$/src/AdminClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AudienceClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CineReviews.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CineReviewsClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CriticClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/NoUserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/NotAdministratorException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Show.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserAbstract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/AdministratorException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/CineReviewsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/UserException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projecto2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projecto2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviews.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,9 +49,17 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Gamer/Desktop/Eclipse_Dark_Theme_1.4.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -63,10 +71,19 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests.test03">
+  <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Projecto2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projecto2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -103,6 +120,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Tests" />
         <item itemvalue="JUnit.Tests.test03" />
         <item itemvalue="JUnit.Tests.test02" />
         <item itemvalue="JUnit.Tests.test01" />
@@ -118,6 +136,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684961721179</updated>
+      <workItem from="1685536874048" duration="4566000" />
     </task>
     <task id="LOCAL-00001" summary="Test1 working">
       <created>1684971575996</created>
@@ -128,6 +147,9 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

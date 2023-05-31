@@ -5,8 +5,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public class CineReviewsClass implements CineReviews{
+    private static final String UNKNOWN_TYPE = "Unknown user type!";
+    private static final String USER_EXISTS = "User %s already exists!";
+    private static final String NO_USERS = "No users registered.";
 
-    private LinkedList<User> users;
+    private final LinkedList<User> users;
     public CineReviewsClass(){
         users = new LinkedList<>();
     }
@@ -22,7 +25,10 @@ public class CineReviewsClass implements CineReviews{
     }
 
     @Override
-    public void register(String type, String name, String password) {
+    public void register(String type, String name, String password) throws CineReviewsException{
+        if(!hasType(type)) throw new CineReviewsException(UNKNOWN_TYPE);
+        if(hasPerson(name)) throw new CineReviewsException(String.format(USER_EXISTS, name));
+
         if(password!=null){
             users.add(new AdminClass(name,password));
         }
@@ -43,7 +49,8 @@ public class CineReviewsClass implements CineReviews{
     }
 
     @Override
-    public Iterator<User> getUsers() {
+    public Iterator<User> getUsers() throws CineReviewsException{
+        if(!hasUsers()) throw new CineReviewsException(NO_USERS);
         users.sort(Comparator.comparing(User::getName));
         return users.iterator();
     }

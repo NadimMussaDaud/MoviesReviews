@@ -1,3 +1,4 @@
+import Exceptions.CineReviewsException;
 import Exceptions.NoUserException;
 import Exceptions.NotAdministratorException;
 
@@ -8,10 +9,10 @@ public interface CineReviews {
 
     boolean hasPerson(String name);
 
-    void register(String type, String name, String password);
+    void register(String type, String name, String password) throws CineReviewsException;
 
     boolean hasUsers();
-    Iterator<User> getUsers();
+    Iterator<User> getUsers() throws CineReviewsException;
 
     boolean isAdmin(String admin) throws NoUserException, NotAdministratorException;
 
