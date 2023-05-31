@@ -18,8 +18,8 @@ Funcionalidade:
 3. REGISTER() **DONE**
 4. USERS() **DONE**
 5. MOVIE() Nadim
-6. SERIES()
-7. SHOWS() Nadim
+6. SERIES() **DONE**
+7. SHOWS() Lucas
 8. ARTIST() Nadim
 9. CREDITS()
 10. REVIEW()
