@@ -1,5 +1,7 @@
 **ACRESCENTAR O QUE FOR NECESSÁRIO FAZER**
 
+DICA: INSTALAR **COPILOT**
+
 Qualidade de código:
 1. Por exceções nos metodos já feitos E no resto dos métodos.
 2. Comentar código ao fazer os métodos.
