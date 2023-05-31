@@ -3,6 +3,7 @@ package CineReviewsPackage;
 import CineReviewsPackage.Exceptions.CineReviewsException;
 import CineReviewsPackage.Exceptions.UserException;
 import CineReviewsPackage.Persons.Person;
+import CineReviewsPackage.Shows.Show;
 
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +14,6 @@ public interface CineReviews {
 
     void register(String type, String name, String password) throws CineReviewsException;
 
-    boolean hasUsers();
     Iterator<Map.Entry<String, Person>> getPersons() throws CineReviewsException;
 
     boolean isAdmin(String admin) throws CineReviewsException ;
@@ -22,6 +22,8 @@ public interface CineReviews {
 
     boolean hasShow(String title);
 
-    void addMovie(String title, String director, int duration, String certification, int year,
-                  List<String> genres, List<String> cast) throws CineReviewsException;
+    int addShow(String title, String director, int duration, String certification, int year,
+                 List<String> genres, List<String> cast, String type, String adminName) throws CineReviewsException;
+
+    public Iterator<Map.Entry<String, Show>> getShows() throws CineReviewsException;
 }

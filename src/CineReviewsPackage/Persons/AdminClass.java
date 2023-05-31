@@ -12,23 +12,13 @@ public class AdminClass extends PersonAbstract<Show>{
         this.password = password;
     }
 
-    @Override
-    public boolean isAdministrator() {
-        return true;
-    }
-
-    @Override
-    public boolean isArtist() {
-        return false;
-    }
-
     public int numberMovies(){
         return super.media.size();
     }
 
-    @SuppressWarnings("unchecked")
-    public void addMovie(Show show){
-        super.media.add(show);
+
+    public void addMedia(Object o){
+        super.media.add((Show)o);
     }
 
     @Override

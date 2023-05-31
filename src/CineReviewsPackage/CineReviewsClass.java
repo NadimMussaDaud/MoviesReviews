@@ -3,6 +3,7 @@ package CineReviewsPackage;
 import CineReviewsPackage.Exceptions.*;
 import CineReviewsPackage.Persons.*;
 import CineReviewsPackage.Shows.MovieClass;
+import CineReviewsPackage.Shows.SeriesClass;
 import CineReviewsPackage.Shows.Show;
 
 import java.util.*;
@@ -46,13 +47,8 @@ public class CineReviewsClass implements CineReviews{
     }
 
     @Override
-    public boolean hasUsers() {
-        return persons.isEmpty();
-    }
-
-    @Override
     public Iterator<Map.Entry<String, Person>> getPersons() throws CineReviewsException{
-        if(!hasUsers()) throw new CineReviewsException(NO_USERS);
+        if(persons.isEmpty()) throw new CineReviewsException(NO_USERS);
         return persons.entrySet().iterator();
     }
 
@@ -60,17 +56,17 @@ public class CineReviewsClass implements CineReviews{
     public boolean isAdmin(String admin) throws CineReviewsException {
         if(!persons.containsKey(admin))
             throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, admin));
-        if(!persons.get(admin).isAdministrator())
+        if(!(persons.get(admin) instanceof AdminClass))
             throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, admin));
 
-        return persons.get(admin).isAdministrator();
+        return persons.get(admin) instanceof AdminClass;
     }
 
     public void authenticate(String name, String password) throws CineReviewsException, UserException{
         if(!persons.containsKey(name))
             throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, name));
         Person p = persons.get(name);
-        if(!p.isAdministrator())
+        if(!(p instanceof AdminClass))
             throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, name));
         p.authenticate(password);
     }
@@ -81,41 +77,62 @@ public class CineReviewsClass implements CineReviews{
     }
 
     @Override
-    public void addMovie(String title, String director, int duration, String certification, int year, List<String> genres, List<String> cast) throws CineReviewsException {
+    public int addShow(String title, String director, int durationOrSeasons, String certification, int year,
+                        List<String> genres, List<String> cast, String type, String adminName) throws CineReviewsException {
         if(shows.containsKey(title)) throw new CineReviewsException(String.format(SHOW_EXISTS, title));
 
-        addArtistInfo(director,null,null);
-        for(String c : cast){
-           addArtistInfo(c,null,null);
-        }
+        int newArtistCount = handleArtists(cast, director);
+
         //tirar de users todos os artistas recém criados e guardar num array de users
-        List<Person> castPersons = new LinkedList<>();
-        for(String a : cast){
-            castPersons.add(persons.get(a));
-        }
+        SortedMap<String, Person> castPersons = new TreeMap<>();
+        for(String a : cast)
+            castPersons.put(a, persons.get(a));
         Person directorPerson = persons.get(director);
 
-        Show s = new MovieClass(directorPerson,duration,certification,year,genres,castPersons);
-        shows.put(title, s);
+        Show s = null;
+        if(type.equals("movie"))
+            s = new MovieClass(directorPerson,durationOrSeasons,certification,year,genres,castPersons);
+        if(type.equals("series"))
+            s = new SeriesClass(directorPerson,durationOrSeasons,certification,year,genres,castPersons);
 
-        for(Person p : castPersons)
+        shows.put(title, s);
+        for(Person p : castPersons.values())
             p.addMedia(s);
 
+        persons.get(adminName).addMedia(s);
+
+        return newArtistCount;
     }
 
-    private void addArtist(String name, String birthplace, String birthday) throws CineReviewsException{
-        if(!persons.containsKey(name))
-            persons.put(name, new ArtistClass(birthplace,birthday));
+    private int handleArtists(List<String> cast, String director){
+        int count = 0;
+        count += addArtistInfo(director,null,null);
+        for(String c : cast){
+            count += addArtistInfo(c,null,null);
+        }
+        return count;
+    }
+
+    private int addArtist(String name, String birthplace, String birthday) throws CineReviewsException{
+        if(!persons.containsKey(name)){
+            persons.put(name, new ArtistClass(birthplace, birthday));
+            return 1;
+        }
         else throw new CineReviewsException("");
     }
 
-
-    public void addArtistInfo(String name, String birthplace, String birthday) {
+    public int addArtistInfo(String name, String birthplace, String birthday) {
         try {
-            addArtist(name, birthplace, birthday);
+            return addArtist(name, birthplace, birthday);
         } catch (CineReviewsException e) {
-            if (persons.get(name) instanceof ArtistClass)
+            if ((persons.get(name) instanceof ArtistClass) && birthplace != null && birthday != null)
                 ((ArtistClass) persons.get(name)).addInfo(birthplace, birthday);
+            return 0;
         }
+    }
+
+    public Iterator<Map.Entry<String, Show>> getShows() throws CineReviewsException{
+        if(shows.isEmpty()) throw new CineReviewsException("No shows have been uploaded.");
+        return shows.entrySet().iterator();
     }
 }

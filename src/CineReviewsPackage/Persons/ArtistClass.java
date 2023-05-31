@@ -16,13 +16,7 @@ public class ArtistClass extends PersonAbstract<Show> {
         this.birthplace = birthplace;
     }
 
-    @Override
-    public boolean isArtist() {
-        return true;
-    }
-
-    @Override
-    public boolean isAdministrator() {
-        return false;
+    public void addMedia(Object o){
+        super.media.add((Show) o);
     }
 }

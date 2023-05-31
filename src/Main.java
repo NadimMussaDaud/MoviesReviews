@@ -4,9 +4,12 @@
 
 import CineReviewsPackage.CineReviews;
 import CineReviewsPackage.CineReviewsClass;
+import CineReviewsPackage.Persons.AdminClass;
 import CineReviewsPackage.Persons.Person;
 import CineReviewsPackage.Exceptions.CineReviewsException;
+import CineReviewsPackage.Shows.Show;
 
+import java.awt.event.WindowStateListener;
 import java.util.*;
 
 public class Main {
@@ -14,13 +17,14 @@ public class Main {
     //MESSAGES
     private static final String EXIT_MESSAGE = "Bye!";
     private static final String UNKNOWN_COMMAND_FORMAT = "%s %s\n";
-    private static final String UNKNOWN_TYPE = "Unknown user type!";
-    private static final String USER_EXISTS = "CineReviewsPackage.Persons.Person %s already exists!\n";
-    private static final String USER_REGISTERED = "CineReviewsPackage.Persons.Person %s was registered as %s.\n";
-    private static final String USERS_CMD_HEADER = "All registered users:";
-    private static final String USERS_CMD_ADMIN_FORMAT = "Admin %s has uploaded %d shows\n";
-    private static final String USERS_CMD_USER_FORMAT = "User %s has posted %d reviews\n";
-    private static final String ADD_MOVIE_SUCCESS = "Show %s was added by %s.\n";
+    private static final String USER_REGISTERED = "User %s was registered as %s.\n";
+    private static final String USERS_HEADER = "All registered users:";
+    private static final String USERS_ADMIN_FORMAT = "Admin %s has uploaded %d shows\n";
+    private static final String USERS_FORMAT = "User %s has posted %d reviews\n";
+    private static final String ADD_MOVIE_SUCCESS = "%s %s (%d) was uploaded [%d new artists were created].\n";
+    private static final String SHOWS_HEADER = "All shows:";
+    private static final String SHOWS_FORMAT = "%s; %s; %d; %s; %d; %s";
+    private static final String SHOWS_CAST_FORMAT = "; %s";
 
     public static void main(String[] args){
         commands();
@@ -54,7 +58,9 @@ public class Main {
                 case UNKNOWN -> System.out.printf(UNKNOWN_COMMAND_FORMAT, command.getName(), command.getDescription());
                 case REGISTER -> register(in, system);
                 case USERS -> users(system);
-                case MOVIE -> movie(in, system);
+                case MOVIE -> show(in, system, "Movie");
+                case SERIES -> show(in, system, "Series");
+                case SHOWS -> shows(system);
 
             }
         } while (command != Commands.EXIT);
@@ -107,15 +113,15 @@ public class Main {
      */
     private static void users(CineReviews system) {
         try {
-            System.out.println(USERS_CMD_HEADER);
             Iterator<Map.Entry<String, Person>> it = system.getPersons();
+            System.out.println(USERS_HEADER);
             while (it.hasNext()) {
                 Map.Entry<String, Person> m = it.next();
 
-                if (m.getValue().isAdministrator())
-                    System.out.printf(USERS_CMD_ADMIN_FORMAT, m.getKey(), m.getValue().numberUploads());
+                if (m.getValue() instanceof AdminClass)
+                    System.out.printf(USERS_ADMIN_FORMAT, m.getKey(), m.getValue().numberUploads());
                 else
-                    System.out.printf(USERS_CMD_USER_FORMAT, m.getKey(), m.getValue().numberUploads());
+                    System.out.printf(USERS_FORMAT, m.getKey(), m.getValue().numberUploads());
             }
         } catch (CineReviewsException c) {
             System.out.println(c.getMessage());
@@ -125,12 +131,12 @@ public class Main {
     /**
      * Registers a new movie
      */
-    private static void movie(Scanner in, CineReviews system){
+    private static void show(Scanner in, CineReviews system, String type){
         String admin = in.next();
         String password = in.nextLine().trim();
         String title = in.nextLine().trim();
         String director = in.nextLine().trim();
-        int duration = in.nextInt();
+        int durationOrSeasons = in.nextInt();
         in.nextLine();
         String certification = in.nextLine().trim();
         int year = in.nextInt();
@@ -141,8 +147,9 @@ public class Main {
 
         try {
             system.authenticate(admin, password);
-            system.addMovie(title, director, duration, certification, year, genres, cast);
-            System.out.printf(ADD_MOVIE_SUCCESS, title, admin);
+            int newArtistCount = system.addShow(title, director, durationOrSeasons, certification,
+                    year, genres, cast, type, admin);
+            System.out.printf(ADD_MOVIE_SUCCESS, type, title, year, newArtistCount);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -158,7 +165,29 @@ public class Main {
         return array;
     }
 
-    
+    private static void shows(CineReviews system){
+        try {
+            Iterator<Map.Entry<String, Show>> it = system.getShows();
+            System.out.println(SHOWS_HEADER);
+            while (it.hasNext())
+                printShow(it.next());
+
+        }catch (CineReviewsException c){
+            System.out.println(c.getMessage());
+        }
+    }
+
+    private static void printShow(Map.Entry<String, Show> showEntry){
+        Show s = showEntry.getValue();
+        System.out.printf(SHOWS_FORMAT, showEntry.getKey(), s.getCreator(), s.getSeasonsOrDuration(),
+                s.getCertification(), s.getYear(), s.getGenres().next());
+
+        Iterator<Map.Entry<String, Person>> it = s.getShowsPersons();
+        while(it.hasNext())
+            System.out.printf(SHOWS_CAST_FORMAT, it.next().getKey());
+
+        System.out.println();
+    }
 
 }
 

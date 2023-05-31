@@ -11,26 +11,41 @@ import java.util.*;
 
 abstract class ShowsAbstract implements Show {
 
-    private static final String DIRECTOR = "Director"; //Director or Creator are considered the same thing
-    private static final String ACTOR = "Actor";
     protected String certification;
     protected int year;
+    protected Person creator;
     protected List<String> genres;
-    protected SortedMap<String, Person> persons; //String is the role of the person
+    protected SortedMap<String, Person> persons;
 
 
-    public ShowsAbstract(Person director, String certification, int year, List<String> genres, List<Person> cast) {
+    public ShowsAbstract(Person creator, String certification, int year, List<String> genres, SortedMap<String, Person> cast) {
         this.certification = certification;
         this.year = year;
+        this.creator = creator;
         this.genres = genres;
         persons = new TreeMap<>();
-        initializeCrew(director,cast);
+        persons.putAll(cast);
     }
 
-    private void initializeCrew(Person director, List<Person> cast) {
-        persons.put(DIRECTOR, director);
-        for (Person o : cast)
-            persons.put(ACTOR, o);
+    public String getCertification() {
+        return certification;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public Person getCreator(){
+        return creator;
+    }
+
+    public Iterator<String> getGenres() {
+        return genres.iterator();
+    }
+
+    public Iterator<Map.Entry<String, Person>> getShowsPersons() {
+        return persons.entrySet().iterator();
+    }
+
+    public abstract int getSeasonsOrDuration();
 }

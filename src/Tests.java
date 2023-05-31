@@ -55,8 +55,8 @@ public class Tests {
     @Test public void test08() { test("08_in.txt","08_out.txt"); }
     @Test public void test09() { test("09_in.txt","09_out.txt"); }
     @Test public void test10() { test("10_in.txt","10_out.txt"); }
-//    @Test public void test11() { test("11_in.txt","11_out.txt"); }
-//    @Test public void test12() { test("12_in.txt","12_out.txt"); }
+    @Test public void test11() { test("11_in.txt","11_out.txt"); }
+    @Test public void test12() { test("12_in.txt","12_out.txt"); }
 
 
     /**
@@ -111,9 +111,9 @@ public class Tests {
             fullInput = new String(Files.readAllBytes(input.toPath()));
             fullOutput = new String(Files.readAllBytes(output.toPath()));
             consoleStream.println("INPUT ============");
-            consoleStream.println(fullInput);
+            consoleStream.println(new String(fullInput));
             consoleStream.println("OUTPUT ESPERADO =============");
-            consoleStream.println(fullOutput);
+            consoleStream.println(new String(fullOutput));
             consoleStream.println("OUTPUT =============");
         } catch(Exception e) {
             e.printStackTrace();
@@ -129,9 +129,10 @@ public class Tests {
             e.printStackTrace();
             fail("Erro no programa");
         } finally {
-            consoleStream.println(outContent.toString());
+            byte[] outPrintBytes = outContent.toByteArray();
+            consoleStream.println(new String(outPrintBytes));
 
-            assertEquals(removeCarriages(fullOutput), removeCarriages(outContent.toString()));
+            assertEquals(removeCarriages(fullOutput), removeCarriages(new String(outContent.toByteArray())));
         }
     }
 

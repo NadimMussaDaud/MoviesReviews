@@ -1,13 +1,13 @@
-CineReviewsPackage.Persons.Person Roger.Ebert was registered as critic.
-CineReviewsPackage.Persons.Person Eve was registered as audience.
-CineReviewsPackage.Persons.Person Alice was registered as audience.
-CineReviewsPackage.Persons.Person Bob was registered as audience.
-CineReviewsPackage.Persons.Person Din.Grogu was registered as admin.
-CineReviewsPackage.Persons.Person Peter.Bradshaw was registered as critic.
-CineReviewsPackage.Persons.Person Bo-Katan.Kryze was registered as admin.
-CineReviewsPackage.Persons.Person Din.Djarin was registered as admin.
-CineReviewsPackage.Persons.Person Kaleena.Rivera was registered as critic.
-CineReviewsPackage.Persons.Person Dustin.Rowles was registered as critic.
+User Roger.Ebert was registered as critic.
+User Eve was registered as audience.
+User Alice was registered as audience.
+User Bob was registered as audience.
+User Din.Grogu was registered as admin.
+User Peter.Bradshaw was registered as critic.
+User Bo-Katan.Kryze was registered as admin.
+User Din.Djarin was registered as admin.
+User Kaleena.Rivera was registered as critic.
+User Dustin.Rowles was registered as critic.
 Movie A Quiet Place (2018) was uploaded [5 new artists were created].
 A Quiet Place; 2018; director [movie]
 Series Peaky Blinders (2013) was uploaded [8 new artists were created].
@@ -26,7 +26,7 @@ Series Stranger Things (2016) was uploaded [4 new artists were created].
 Movie Elysium (2014) was uploaded [3 new artists were created].
 Movie The Death of Stalin (2017) was uploaded [5 new artists were created].
 Movie Zootropolis (2016) was uploaded [5 new artists were created].
-CineReviewsPackage.Shows.Show Star Wars: Episode VIII - The Last Jedi already exists!
+Show Star Wars: Episode VIII - The Last Jedi already exists!
 Movie Paddington 2 (2017) was uploaded [9 new artists were created].
 Movie Monsters, Inc. (2001) was uploaded [4 new artists were created].
 All shows:
@@ -48,36 +48,36 @@ The Office; Greg Daniels; 9; 15+; 2005; Comedy; Steve Carell; Jenna Fischer; Joh
 The Power of the Dog; Jane Campion; 126; 12A; 2021; Drama; Benedict Cumberbatch; Kirsten Dunst
 Zootropolis; Byron Howard; 108; 7A; 2016; Animation; Ginnifer Goodwin; Jason Bateman; Idris Elba
 All registered users:
-CineReviewsPackage.Persons.Person Alice has posted 0 reviews
+User Alice has posted 0 reviews
 Admin Bo-Katan.Kryze has uploaded 6 shows
-CineReviewsPackage.Persons.Person Bob has posted 0 reviews
+User Bob has posted 0 reviews
 Admin Din.Djarin has uploaded 7 shows
 Admin Din.Grogu has uploaded 4 shows
-CineReviewsPackage.Persons.Person Dustin.Rowles has posted 0 reviews
-CineReviewsPackage.Persons.Person Eve has posted 0 reviews
-CineReviewsPackage.Persons.Person Kaleena.Rivera has posted 0 reviews
-CineReviewsPackage.Persons.Person Peter.Bradshaw has posted 0 reviews
-CineReviewsPackage.Persons.Person Roger.Ebert has posted 0 reviews
-CineReviewsPackage.Review for Star Wars: Episode VIII - The Last Jedi was registered [1 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [1 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [2 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [3 reviews].
-CineReviewsPackage.Review for Star Wars: Episode VIII - The Last Jedi was registered [2 reviews].
-CineReviewsPackage.Review for Star Wars: Episode VIII - The Last Jedi was registered [3 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [4 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [5 reviews].
-CineReviewsPackage.Review for The Power of the Dog was registered [1 reviews].
+User Dustin.Rowles has posted 0 reviews
+User Eve has posted 0 reviews
+User Kaleena.Rivera has posted 0 reviews
+User Peter.Bradshaw has posted 0 reviews
+User Roger.Ebert has posted 0 reviews
+Review for Star Wars: Episode VIII - The Last Jedi was registered [1 reviews].
+Review for Peaky Blinders was registered [1 reviews].
+Review for Peaky Blinders was registered [2 reviews].
+Review for Peaky Blinders was registered [3 reviews].
+Review for Star Wars: Episode VIII - The Last Jedi was registered [2 reviews].
+Review for Star Wars: Episode VIII - The Last Jedi was registered [3 reviews].
+Review for Peaky Blinders was registered [4 reviews].
+Review for Peaky Blinders was registered [5 reviews].
+Review for The Power of the Dog was registered [1 reviews].
 All registered users:
-CineReviewsPackage.Persons.Person Alice has posted 1 reviews
+User Alice has posted 1 reviews
 Admin Bo-Katan.Kryze has uploaded 6 shows
-CineReviewsPackage.Persons.Person Bob has posted 0 reviews
+User Bob has posted 0 reviews
 Admin Din.Djarin has uploaded 7 shows
 Admin Din.Grogu has uploaded 4 shows
-CineReviewsPackage.Persons.Person Dustin.Rowles has posted 2 reviews
-CineReviewsPackage.Persons.Person Eve has posted 1 reviews
-CineReviewsPackage.Persons.Person Kaleena.Rivera has posted 2 reviews
-CineReviewsPackage.Persons.Person Peter.Bradshaw has posted 1 reviews
-CineReviewsPackage.Persons.Person Roger.Ebert has posted 2 reviews
+User Dustin.Rowles has posted 2 reviews
+User Eve has posted 1 reviews
+User Kaleena.Rivera has posted 2 reviews
+User Peter.Bradshaw has posted 1 reviews
+User Roger.Ebert has posted 2 reviews
 Search by genre:
 Movie The Power of the Dog by Jane Campion released on 2021 [5.0]
 Series The English by Hugo Blick released on 2022 [0.0]
@@ -99,7 +99,7 @@ Movie The Death of Stalin by Armando Iannucci released on 2017 [0.0]
 Series Stranger Things by The Duffer Brothers released on 2016 [0.0]
 Movie Elysium by Neill Blomkamp released on 2014 [0.0]
 Movie Locke by Steven Knight released on 2014 [0.0]
-CineReviewsPackage.Review for Locke was registered [1 reviews].
+Review for Locke was registered [1 reviews].
 Search by genre:
 Movie The Power of the Dog by Jane Campion released on 2021 [5.0]
 Movie Locke by Steven Knight released on 2014 [5.0]
@@ -114,8 +114,8 @@ Search by genre:
 Series Peaky Blinders by Steven Knight released on 2013 [4.2]
 Movie Dune by Denis Villeneuve released on 2019 [0.0]
 Movie Elysium by Neill Blomkamp released on 2014 [0.0]
-CineReviewsPackage.Review for Elysium was registered [1 reviews].
-CineReviewsPackage.Review for Elysium was registered [2 reviews].
+Review for Elysium was registered [1 reviews].
+Review for Elysium was registered [2 reviews].
 Search by genre:
 Series Peaky Blinders by Steven Knight released on 2013 [4.2]
 Movie Elysium by Neill Blomkamp released on 2014 [3.7]
@@ -124,9 +124,9 @@ Search by genre:
 Movie Star Wars: Episode VIII - The Last Jedi by Rian Johnson released on 2016 [4.0]
 Movie Doctor Strange in the Multiverse of Madness by Sam Raimi released on 2022 [0.0]
 Movie Dune by Denis Villeneuve released on 2019 [0.0]
-CineReviewsPackage.Review for Dune was registered [1 reviews].
-CineReviewsPackage.Review for Doctor Strange in the Multiverse of Madness was registered [1 reviews].
-CineReviewsPackage.Review for Doctor Strange in the Multiverse of Madness was registered [2 reviews].
+Review for Dune was registered [1 reviews].
+Review for Doctor Strange in the Multiverse of Madness was registered [1 reviews].
+Review for Doctor Strange in the Multiverse of Madness was registered [2 reviews].
 Search by genre:
 Movie Dune by Denis Villeneuve released on 2019 [5.0]
 Movie Star Wars: Episode VIII - The Last Jedi by Rian Johnson released on 2016 [4.0]

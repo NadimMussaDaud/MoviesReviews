@@ -11,15 +11,10 @@ abstract class PersonAbstract<T> implements Person {
         media = new LinkedList<>();
     }
 
-    public void addMedia(Object e){
-        media.add((T)e);
-    }
+    public abstract void addMedia(Object o);
 
     public int numberUploads(){
         return media.size();
     }
-
-    public abstract boolean isAdministrator();
-
     public void authenticate(String password) throws UserException {}
 }

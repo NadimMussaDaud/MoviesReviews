@@ -7,13 +7,8 @@ public class CriticClass extends PersonAbstract<Review>{
         super();
     }
 
-    @Override
-    public boolean isAdministrator() {
-        return false;
+    public void addMedia(Object o){
+        super.media.add((Review) o);
     }
 
-    @Override
-    public boolean isArtist() {
-        return false;
-    }
 }

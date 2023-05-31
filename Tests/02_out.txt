@@ -1,19 +1,19 @@
 No users registered.
-CineReviewsPackage.Persons.Person Roger.Ebert was registered as critic.
-CineReviewsPackage.Persons.Person Eve was registered as audience.
-CineReviewsPackage.Persons.Person Alice was registered as audience.
-CineReviewsPackage.Persons.Person Bob was registered as audience.
-CineReviewsPackage.Persons.Person Din.Grogu was registered as admin.
-CineReviewsPackage.Persons.Person Peter.Bradshaw was registered as critic.
-CineReviewsPackage.Persons.Person Bo-Katan.Kryze was registered as admin.
-CineReviewsPackage.Persons.Person Din.Djarin was registered as admin.
+User Roger.Ebert was registered as critic.
+User Eve was registered as audience.
+User Alice was registered as audience.
+User Bob was registered as audience.
+User Din.Grogu was registered as admin.
+User Peter.Bradshaw was registered as critic.
+User Bo-Katan.Kryze was registered as admin.
+User Din.Djarin was registered as admin.
 All registered users:
-CineReviewsPackage.Persons.Person Alice has posted 0 reviews
+User Alice has posted 0 reviews
 Admin Bo-Katan.Kryze has uploaded 0 shows
-CineReviewsPackage.Persons.Person Bob has posted 0 reviews
+User Bob has posted 0 reviews
 Admin Din.Djarin has uploaded 0 shows
 Admin Din.Grogu has uploaded 0 shows
-CineReviewsPackage.Persons.Person Eve has posted 0 reviews
-CineReviewsPackage.Persons.Person Peter.Bradshaw has posted 0 reviews
-CineReviewsPackage.Persons.Person Roger.Ebert has posted 0 reviews
+User Eve has posted 0 reviews
+User Peter.Bradshaw has posted 0 reviews
+User Roger.Ebert has posted 0 reviews
 Bye!

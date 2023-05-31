@@ -1,13 +1,13 @@
-CineReviewsPackage.Persons.Person Roger.Ebert was registered as critic.
-CineReviewsPackage.Persons.Person Eve was registered as audience.
-CineReviewsPackage.Persons.Person Alice was registered as audience.
-CineReviewsPackage.Persons.Person Bob was registered as audience.
-CineReviewsPackage.Persons.Person Din.Grogu was registered as admin.
-CineReviewsPackage.Persons.Person Peter.Bradshaw was registered as critic.
-CineReviewsPackage.Persons.Person Bo-Katan.Kryze was registered as admin.
-CineReviewsPackage.Persons.Person Din.Djarin was registered as admin.
-CineReviewsPackage.Persons.Person Kaleena.Rivera was registered as critic.
-CineReviewsPackage.Persons.Person Dustin.Rowles was registered as critic.
+User Roger.Ebert was registered as critic.
+User Eve was registered as audience.
+User Alice was registered as audience.
+User Bob was registered as audience.
+User Din.Grogu was registered as admin.
+User Peter.Bradshaw was registered as critic.
+User Bo-Katan.Kryze was registered as admin.
+User Din.Djarin was registered as admin.
+User Kaleena.Rivera was registered as critic.
+User Dustin.Rowles was registered as critic.
 Movie A Quiet Place (2018) was uploaded [5 new artists were created].
 A Quiet Place; 2018; director [movie]
 Series Peaky Blinders (2014) was uploaded [8 new artists were created].
@@ -24,17 +24,17 @@ Movie The Power of the Dog (2021) was uploaded [2 new artists were created].
 Movie Dune (2019) was uploaded [5 new artists were created].
 Series Stranger Things (2017) was uploaded [4 new artists were created].
 Movie Elysium (2014) was uploaded [3 new artists were created].
-CineReviewsPackage.Shows released on 2014:
+Shows released on 2014:
 Movie Edge of Tomorrow by Doug Liman released on 2014 [0.0]
 Movie Elysium by Neill Blomkamp released on 2014 [0.0]
 Movie Locke by Steven Knight released on 2014 [0.0]
 Series Peaky Blinders by Steven Knight released on 2014 [0.0]
 Movie The Death of Stalin (2017) was uploaded [5 new artists were created].
-CineReviewsPackage.Shows released on 2017:
+Shows released on 2017:
 Series Stranger Things by The Duffer Brothers released on 2017 [0.0]
 Movie The Death of Stalin by Armando Iannucci released on 2017 [0.0]
 Movie Zootropolis (2016) was uploaded [5 new artists were created].
-CineReviewsPackage.Shows.Show Star Wars: Episode VIII - The Last Jedi already exists!
+Show Star Wars: Episode VIII - The Last Jedi already exists!
 Movie Paddington 2 (2017) was uploaded [9 new artists were created].
 Movie Monsters, Inc. (2001) was uploaded [4 new artists were created].
 All shows:
@@ -56,29 +56,29 @@ The Office; Greg Daniels; 9; 15+; 2005; Comedy; Steve Carell; Jenna Fischer; Joh
 The Power of the Dog; Jane Campion; 126; 12A; 2021; Drama; Benedict Cumberbatch; Kirsten Dunst
 Zootropolis; Byron Howard; 108; 7A; 2016; Animation; Ginnifer Goodwin; Jason Bateman; Idris Elba
 No show was found within the criteria.
-CineReviewsPackage.Shows released on 2017:
+Shows released on 2017:
 Movie Paddington 2 by Paul King released on 2017 [0.0]
 Series Stranger Things by The Duffer Brothers released on 2017 [0.0]
 Movie The Death of Stalin by Armando Iannucci released on 2017 [0.0]
-CineReviewsPackage.Shows released on 2014:
+Shows released on 2014:
 Movie Edge of Tomorrow by Doug Liman released on 2014 [0.0]
 Movie Elysium by Neill Blomkamp released on 2014 [0.0]
 Movie Locke by Steven Knight released on 2014 [0.0]
 Series Peaky Blinders by Steven Knight released on 2014 [0.0]
-CineReviewsPackage.Review for Locke was registered [1 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [1 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [2 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [3 reviews].
-CineReviewsPackage.Review for Paddington 2 was registered [1 reviews].
-CineReviewsPackage.Review for Stranger Things was registered [1 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [4 reviews].
-CineReviewsPackage.Review for Peaky Blinders was registered [5 reviews].
-CineReviewsPackage.Review for The Power of the Dog was registered [1 reviews].
-CineReviewsPackage.Shows released on 2017:
+Review for Locke was registered [1 reviews].
+Review for Peaky Blinders was registered [1 reviews].
+Review for Peaky Blinders was registered [2 reviews].
+Review for Peaky Blinders was registered [3 reviews].
+Review for Paddington 2 was registered [1 reviews].
+Review for Stranger Things was registered [1 reviews].
+Review for Peaky Blinders was registered [4 reviews].
+Review for Peaky Blinders was registered [5 reviews].
+Review for The Power of the Dog was registered [1 reviews].
+Shows released on 2017:
 Series Stranger Things by The Duffer Brothers released on 2017 [5.0]
 Movie Paddington 2 by Paul King released on 2017 [4.0]
 Movie The Death of Stalin by Armando Iannucci released on 2017 [0.0]
-CineReviewsPackage.Shows released on 2014:
+Shows released on 2014:
 Series Peaky Blinders by Steven Knight released on 2014 [4.2]
 Movie Locke by Steven Knight released on 2014 [4.0]
 Movie Edge of Tomorrow by Doug Liman released on 2014 [0.0]
