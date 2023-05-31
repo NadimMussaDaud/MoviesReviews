@@ -1,5 +1,9 @@
 **ACRESCENTAR O QUE FOR NECESSÁRIO FAZER**
 
+********************
+OPINÕES SÃO BEM-VINDAS
+********************
+
 DICA: INSTALAR **COPILOT**
 
 Qualidade de código:
@@ -22,3 +26,14 @@ Funcionalidade:
 12. GENRE()
 13. RELEASED()
 14. AVOIDERS()
+
+
+Nota1: *Diagrama de Classes*
+
+                  PersonInterface
+
+        PersonAbstract(implements PersonInterface)
+        
+AdminClass CriticClass AudienceClass ArtistClass (Todas extends PersonAbstract) 
+ 
+Nota2: Shows contém HashMap<ArtistClass artist, String role> 
