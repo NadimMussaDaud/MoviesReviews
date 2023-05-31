@@ -4,4 +4,6 @@ public interface Person {
     boolean isAdministrator();
 
     int numberUploads();
+
+    boolean isArtist();
 }

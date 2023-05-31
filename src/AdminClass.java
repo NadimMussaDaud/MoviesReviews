@@ -1,4 +1,4 @@
-public class AdminClass extends PersonAbstract{
+public class AdminClass extends PersonAbstract<Show>{
 
     private String password;
     public AdminClass(String name, String password) {
@@ -9,6 +9,11 @@ public class AdminClass extends PersonAbstract{
     @Override
     public boolean isAdministrator() {
         return true;
+    }
+
+    @Override
+    public boolean isArtist() {
+        return false;
     }
 
     public int numberMovies(){

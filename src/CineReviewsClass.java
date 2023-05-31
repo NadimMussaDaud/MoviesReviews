@@ -78,16 +78,39 @@ public class CineReviewsClass implements CineReviews{
 
     @Override
     public void addMovie(String title, String director, int duration, String certification, int year, String[] genres, String[] cast) {
-
-        //shows.add(new MovieClass(title,director,duration,certification,year,genres,cast));
+        addArtistInfo(director,null,null);
+        for(String c : cast){
+           addArtistInfo(c,null,null);
+        }
+        //tirar de users todos os artistas recém criados e guardar num array de users
+        LinkedList<Person> cast2 = new LinkedList<>();
+        for(String a : cast){
+            cast2.add(getUser(a));
+        }
+        Person director2 = getUser(director);
+        shows.add(new MovieClass(title,director2,duration,certification,year,genres,cast2));
+    }
+    private void addArtist(String name, String birthplace, String birthday) throws NoUserException{
+        if(!hasPerson(name))
+            users.add(new ArtistClass(name,birthplace,birthday));
+        else throw new NoUserException();
     }
 
-    private void addArtistInfo(String name, String birthplace, String birthday){
-
-
+    /**
+     * @param name
+     * @param birthplace
+     * @param birthday
+     */
+    public void addArtistInfo(String name, String birthplace, String birthday) {
+        try {
+            addArtist(name, birthplace, birthday);
+        } catch (NoUserException e) {
+            if (getUser(name).isArtist())
+                ((ArtistClass) getUser(name)).addInfo(birthplace, birthday);
+        }
     }
 
-    private Person getUser(String name){
+        private Person getUser(String name){
         for(Person u : users){
             if(u.getName().equals(name)){
                 return u;

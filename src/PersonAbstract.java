@@ -17,8 +17,8 @@ abstract class PersonAbstract<T> implements Person {
         return media.size();
     }
 
-    public boolean isAdministrator(){
-        return false;
-    }
+    public abstract boolean isAdministrator();
+
+
 
 }
