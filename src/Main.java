@@ -17,6 +17,9 @@ public class Main {
     private static final String UNKNOWN_TYPE = "Unknown user type!";
     private static final String USER_EXISTS = "User %s already exists!\n";
     private static final String USER_REGISTERED = "User %s was registered as %s.\n";
+    private static final String USERS_CMD_HEADER = "All registered users:";
+    private static final String USERS_CMD_ADMIN_FORMAT = "Admin %s has uploaded %d shows\n";
+    private static final String USERS_CMD_USER_FORMAT = "User %s has posted %d reviews\n";
 
     public static void main(String[] args) throws NoUserException {
         commands();
@@ -103,14 +106,14 @@ public class Main {
      */
     private static void users(CineReviews system) {
         try {
-            System.out.println("All registered users:");
+            System.out.println(USERS_CMD_HEADER);
             Iterator<User> it = system.getUsers();
             while (it.hasNext()) {
                 User user = it.next();
                 if (user.isAdministrator())
-                    System.out.printf("Admin %s has uploaded %d shows\n", user.getName(), user.numberUploads());
+                    System.out.printf(USERS_CMD_ADMIN_FORMAT, user.getName(), user.numberUploads());
                 else
-                    System.out.printf("User %s has posted %d reviews\n", user.getName(), user.numberUploads());
+                    System.out.printf(USERS_CMD_USER_FORMAT, user.getName(), user.numberUploads());
             }
         } catch (CineReviewsException c){
             System.out.println(c.getMessage());

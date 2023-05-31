@@ -1,6 +1,6 @@
 public class AdminClass extends UserAbstract{
 
-    private String password;
+    private final String password;
     public AdminClass(String name, String password) {
         super(name);
         this.password = password;

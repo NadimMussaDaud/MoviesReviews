@@ -3,8 +3,4 @@ public class CriticClass extends UserAbstract{
         super(name);
     }
 
-    @Override
-    public boolean isAdministrator() {
-        return false;
-    }
 }
