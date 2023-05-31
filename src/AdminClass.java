@@ -1,8 +1,10 @@
+import Exceptions.UserException;
+
 public class AdminClass extends UserAbstract{
+    private static final String INVALID_AUTH = "Invalid authentication!";
 
     private final String password;
-    public AdminClass(String name, String password) {
-        super(name);
+    public AdminClass(String password) {
         this.password = password;
     }
 
@@ -18,5 +20,10 @@ public class AdminClass extends UserAbstract{
     @SuppressWarnings("unchecked")
     public void addMovie(Show show){
         super.media.add(show);
+    }
+
+    @Override
+    public void authenticate(String password) throws UserException {
+        if(!this.password.equals(password)) throw new UserException(INVALID_AUTH);
     }
 }

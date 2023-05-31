@@ -1,43 +1,36 @@
 import Exceptions.*;
 
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.*;
 
 public class CineReviewsClass implements CineReviews{
     private static final String UNKNOWN_TYPE = "Unknown user type!";
     private static final String USER_EXISTS = "User %s already exists!";
     private static final String NO_USERS = "No users registered.";
-
-    private final LinkedList<User> users;
+    private static final String ADMIN_NOT_FOUND = "Admin %s does not exist!";
+    private static final String SHOW_EXISTS = "Show %s already exists!";
+    private final SortedMap<String, User> users;
     public CineReviewsClass(){
-        users = new LinkedList<>();
+        users = new TreeMap<>();
     }
 
     @Override
     public boolean hasType(String type) {
         return type.equals("admin") || type.equals("audience") || type.equals("critic");
     }
-
-    @Override
-    public boolean hasPerson(String name) {
-        return getUser(name)!=null;
-    }
-
     @Override
     public void register(String type, String name, String password) throws CineReviewsException{
         if(!hasType(type)) throw new CineReviewsException(UNKNOWN_TYPE);
         if(hasPerson(name)) throw new CineReviewsException(String.format(USER_EXISTS, name));
 
         if(password!=null){
-            users.add(new AdminClass(name,password));
+            users.put(name, new AdminClass(password));
         }
         else{
             if(type.equals("audience")){
-                users.add(new AudienceClass(name));
+                users.put(name, new AudienceClass());
             }
             else{
-                users.add(new CriticClass(name));
+                users.put(name, new CriticClass());
             }
         }
 
@@ -49,10 +42,9 @@ public class CineReviewsClass implements CineReviews{
     }
 
     @Override
-    public Iterator<User> getUsers() throws CineReviewsException{
+    public Iterator<Map.Entry<String, User>> getUsers() throws CineReviewsException{
         if(!hasUsers()) throw new CineReviewsException(NO_USERS);
-        users.sort(Comparator.comparing(User::getName));
-        return users.iterator();
+        return users.entrySet().iterator();
     }
 
     @Override
@@ -62,18 +54,22 @@ public class CineReviewsClass implements CineReviews{
      * @throws NoUserException if the user does not exist
      * @throws NotAdministratorException if the user is not an administrator
      */
-    public boolean isAdmin(String admin) throws NoUserException, NotAdministratorException {
-        if(!hasPerson(admin))
-            throw new NoUserException();
-        if(!getUser(admin).isAdministrator())
-            throw new NotAdministratorException();
+    public boolean isAdmin(String admin) throws CineReviewsException {
+        if(!users.containsKey(admin))
+            throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, admin));
+        if(!users.get(admin).isAdministrator())
+            throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, admin));
 
-        return getUser(admin).isAdministrator();
+        return users.get(admin).isAdministrator();
     }
 
-    @Override
-    public boolean correctPassword(String admin, String password) {
-        return false;
+    public void authenticate(String name, String password) throws CineReviewsException, UserException{
+        if(!hasPerson(name))
+            throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, name));
+        User u = users.get(name);
+        if(!u.isAdministrator())
+            throw new CineReviewsException(String.format(ADMIN_NOT_FOUND, name));
+        u.authenticate(password);
     }
 
     @Override
@@ -82,16 +78,10 @@ public class CineReviewsClass implements CineReviews{
     }
 
     @Override
-    public void addMovie(String title, String director, int duration, String certification, int year, String[] genres, String[] cast) {
+    public void addMovie(String title, String director, int duration, String certification, int year,
+                         String[] genres, String[] cast) throws CineReviewsException{
+        if(hasShow(title)) throw new CineReviewsException(String.format(SHOW_EXISTS, title));
 
-    }
 
-    private User getUser(String name){
-        for(User u : users){
-            if(u.getName().equals(name)){
-                return u;
-            }
-        }
-        return null;
     }
 }

@@ -7,6 +7,7 @@ import Exceptions.NoUserException;
 import Exceptions.NotAdministratorException;
 
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -20,6 +21,7 @@ public class Main {
     private static final String USERS_CMD_HEADER = "All registered users:";
     private static final String USERS_CMD_ADMIN_FORMAT = "Admin %s has uploaded %d shows\n";
     private static final String USERS_CMD_USER_FORMAT = "User %s has posted %d reviews\n";
+    private static final String ADD_MOVIE_SUCCESS = "Show %s was added by %s.\n";
 
     public static void main(String[] args) throws NoUserException {
         commands();
@@ -107,15 +109,16 @@ public class Main {
     private static void users(CineReviews system) {
         try {
             System.out.println(USERS_CMD_HEADER);
-            Iterator<User> it = system.getUsers();
+            Iterator<Map.Entry<String, User>> it = system.getUsers();
             while (it.hasNext()) {
-                User user = it.next();
-                if (user.isAdministrator())
-                    System.out.printf(USERS_CMD_ADMIN_FORMAT, user.getName(), user.numberUploads());
+                Map.Entry<String, User> m = it.next();
+
+                if (m.getValue().isAdministrator())
+                    System.out.printf(USERS_CMD_ADMIN_FORMAT, m.getKey(), m.getValue().numberUploads());
                 else
-                    System.out.printf(USERS_CMD_USER_FORMAT, user.getName(), user.numberUploads());
+                    System.out.printf(USERS_CMD_USER_FORMAT, m.getKey(), m.getValue().numberUploads());
             }
-        } catch (CineReviewsException c){
+        } catch (CineReviewsException c) {
             System.out.println(c.getMessage());
         }
     }
@@ -134,35 +137,26 @@ public class Main {
         int year = in.nextInt();
         in.nextLine();
 
-        int noGenres = in.nextInt();
-        in.nextLine();
-        String[] genres = new String[noGenres];
-        for (int i = 0; i < noGenres; i++) {
-            genres[i] = in.nextLine().trim();
-        }
-
-        int noCast = in.nextInt();
-        in.nextLine();
-        String[] cast = new String[noCast];
-        for (int i = 0; i < noCast; i++) {
-            cast[i] = in.nextLine().trim();
-        }
-
+        String[] genres = readStringArray(in);
+        String[] cast = readStringArray(in);
 
         try {
-            if (!(system.hasPerson(admin) && system.isAdmin(admin))) {
-                System.out.printf("Admin %s does not exist!\n", admin);
-            } else if (!system.correctPassword(admin, password)) {
-                System.out.println("Invalid authentication!");
-            } else if (system.hasShow(title)) {
-                System.out.printf("Show %s already exists!\n", title);
-            } else {
-                system.addMovie(title, director, duration, certification, year, genres, cast);
-                System.out.printf("Show %s was added by %s.\n", title, admin);
-            }
+            system.authenticate(admin, password);
+            system.addMovie(title, director, duration, certification, year, genres, cast);
+            System.out.printf("Show %s was added by %s.\n", title, admin);
         } catch (Exception e) {
-            System.out.printf("Admin %s does not exist!\n", admin);
+            System.out.println(e.getMessage());
         }
+    }
+
+    private static String[] readStringArray(Scanner in) {
+        int amountToRead = in.nextInt();
+        in.nextLine();
+        String[] array = new String[amountToRead];
+        for (int i = 0; i < amountToRead; i++) {
+            array[i] = in.nextLine().trim();
+        }
+        return array;
     }
 
 
