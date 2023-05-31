@@ -1,10 +1,10 @@
 package CineReviewsPackage.Persons;
 
-import CineReviewsPackage.Review;
+import CineReviewsPackage.Shows.Reviews.Review;
 
 public class CriticClass extends PersonAbstract<Review>{
-    public CriticClass() {
-        super();
+    public CriticClass(String name) {
+        super(name);
     }
 
     public void addMedia(Object o){

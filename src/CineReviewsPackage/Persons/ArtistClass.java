@@ -3,9 +3,9 @@ package CineReviewsPackage.Persons;
 import CineReviewsPackage.Shows.Show;
 
 public class ArtistClass extends PersonAbstract<Show> {
-    private String name, birthday,birthplace;
-    public ArtistClass(String birthday, String birthplace) {
-        super();
+    private String birthday,birthplace;
+    public ArtistClass(String name,String birthday, String birthplace) {
+        super(name);
         this.birthday = birthday;
         this.birthplace = birthplace;
     }

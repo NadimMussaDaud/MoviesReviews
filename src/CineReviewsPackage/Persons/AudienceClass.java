@@ -1,10 +1,10 @@
 package CineReviewsPackage.Persons;
 
-import CineReviewsPackage.Review;
+import CineReviewsPackage.Shows.Reviews.Review;
 
 public class AudienceClass extends PersonAbstract<Review>{
-    public AudienceClass() {
-        super();
+    public AudienceClass(String name) {
+        super(name);
     }
 
     public void addMedia(Object o){

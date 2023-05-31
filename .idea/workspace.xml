@@ -7,33 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="AdministratorException, NotAdministratorException, NoUserException removed&#10;&#10;Exceptions generalized into UserException and CineReviewsException.">
-      <change afterPath="$PROJECT_DIR$/Tests/11_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/11_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/12_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/12_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/README.txt" afterDir="false" />
+    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="series, shows implemented">
+      <change afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/ShowException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/01_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/01_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/01_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/01_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/02_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/02_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/02_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/02_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/03_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/03_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/03_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/03_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/04_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/04_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/04_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/04_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/05_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/05_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/05_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/05_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/06_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/06_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/06_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/06_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/07_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/07_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/07_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/07_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/08_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/08_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/08_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/08_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/09_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/09_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/09_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/09_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/10_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/10_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/10_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/10_out.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/AdminClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/AdminClass.java" afterDir="false" />
@@ -42,17 +20,24 @@
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/CriticClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/CriticClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/PersonAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/PersonAbstract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/MovieClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/MovieClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/SeriesClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/SeriesClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/ReviewClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RecentsManager">
@@ -110,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685560126886</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="series, shows implemented">
+      <created>1685567795255</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685567795255</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +120,7 @@
     <MESSAGE value="Severe merge" />
     <MESSAGE value="Several fixes, changed shows to sortedmap" />
     <MESSAGE value="AdministratorException, NotAdministratorException, NoUserException removed&#10;&#10;Exceptions generalized into UserException and CineReviewsException." />
-    <option name="LAST_COMMIT_MESSAGE" value="AdministratorException, NotAdministratorException, NoUserException removed&#10;&#10;Exceptions generalized into UserException and CineReviewsException." />
+    <MESSAGE value="series, shows implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="series, shows implemented" />
   </component>
 </project>

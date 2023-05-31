@@ -7,8 +7,8 @@ public class AdminClass extends PersonAbstract<Show>{
     private static final String INVALID_AUTH = "Invalid authentication!";
 
     private final String password;
-    public AdminClass(String password) {
-        super();
+    public AdminClass(String name, String password) {
+        super(name);
         this.password = password;
     }
 

@@ -5,11 +5,13 @@
 import CineReviewsPackage.CineReviews;
 import CineReviewsPackage.CineReviewsClass;
 import CineReviewsPackage.Persons.AdminClass;
+import CineReviewsPackage.Persons.CriticClass;
 import CineReviewsPackage.Persons.Person;
 import CineReviewsPackage.Exceptions.CineReviewsException;
+import CineReviewsPackage.Shows.Reviews.Review;
 import CineReviewsPackage.Shows.Show;
 
-import java.awt.event.WindowStateListener;
+import javax.swing.text.Style;
 import java.util.*;
 
 public class Main {
@@ -25,13 +27,16 @@ public class Main {
     private static final String SHOWS_HEADER = "All shows:";
     private static final String SHOWS_FORMAT = "%s; %s; %d; %s; %d; %s";
     private static final String SHOWS_CAST_FORMAT = "; %s";
+    private static final String REVIEW_ADDED = "Review for %s was registered [%d reviews].\n";
+    private static final String REVIEWS_HEADER = "Reviews of %s [%d]:\n";
+    private static final String REVIEWS_FORMAT = "Review of %s (%s): %s [%s]\n";
 
     public static void main(String[] args){
         commands();
     }
 
     /**
-     * @returns the command with the given name or UNKNOWN if the command does not exist
+     * @return the command with the given name or UNKNOWN if the command does not exist
      * @param command the name of the command
      */
     private static Commands getCommand(String command) {
@@ -189,6 +194,33 @@ public class Main {
         System.out.println();
     }
 
+    private static void review(Scanner in, CineReviews system){
+        try{
+            String userName = in.next();
+            String showName = in.nextLine().trim();
+            int reviewCount = system.addReview(userName, showName, in.nextLine(), in.nextLine());
+            System.out.printf(REVIEW_ADDED, showName, reviewCount);
+        } catch(CineReviewsException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void reviews(Scanner in, CineReviews system){
+        String show = in.nextLine().trim();
+
+        try{
+            Iterator<Review> it = system.getReviews(show);
+            System.out.printf(REVIEWS_HEADER, show, system.getAverageRating(show));
+            while (it.hasNext()){
+                Review tmp = it.next();
+                Person p = tmp.getReviewer();
+                String userType = (p instanceof CriticClass)? "critic" : "audience";
+                System.out.printf(REVIEWS_FORMAT, p.getName(), userType,tmp.getReviewText(),tmp.getRating().getText());
+            }
+        } catch (CineReviewsException c){
+            System.out.println(c.getMessage());
+        }
+    }
 }
 
 
