@@ -13,7 +13,7 @@ public class CineReviewsClass implements CineReviews{
     private static final String USER_EXISTS = "User %s already exists!";
     private static final String NO_USERS = "No users registered.";
     private static final String ADMIN_NOT_FOUND = "Admin %s does not exist!";
-    private static final String SHOW_EXISTS = "CineReviewsPackage.Shows.Show %s already exists!";
+    private static final String SHOW_EXISTS = "Show %s already exists!";
     private SortedMap<String, Show> shows;
     private final SortedMap<String, Person> persons;
 
@@ -82,6 +82,8 @@ public class CineReviewsClass implements CineReviews{
 
     @Override
     public void addMovie(String title, String director, int duration, String certification, int year, List<String> genres, List<String> cast) throws CineReviewsException {
+        if(shows.containsKey(title)) throw new CineReviewsException(String.format(SHOW_EXISTS, title));
+
         addArtistInfo(director,null,null);
         for(String c : cast){
            addArtistInfo(c,null,null);

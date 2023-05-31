@@ -20,7 +20,7 @@ public class Main {
     private static final String USERS_CMD_HEADER = "All registered users:";
     private static final String USERS_CMD_ADMIN_FORMAT = "Admin %s has uploaded %d shows\n";
     private static final String USERS_CMD_USER_FORMAT = "User %s has posted %d reviews\n";
-    private static final String ADD_MOVIE_SUCCESS = "CineReviewsPackage.Shows.Show %s was added by %s.\n";
+    private static final String ADD_MOVIE_SUCCESS = "Show %s was added by %s.\n";
 
     public static void main(String[] args){
         commands();
@@ -142,7 +142,7 @@ public class Main {
         try {
             system.authenticate(admin, password);
             system.addMovie(title, director, duration, certification, year, genres, cast);
-            System.out.printf("CineReviewsPackage.Shows.Show %s was added by %s.\n", title, admin);
+            System.out.printf(ADD_MOVIE_SUCCESS, title, admin);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -158,6 +158,7 @@ public class Main {
         return array;
     }
 
+    
 
 }
 
