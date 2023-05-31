@@ -1,36 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85163092-5db6-49d4-981b-52d794057ea1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projecto2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/01_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/01_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/02_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/02_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/03_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/03_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/04_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/04_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/05_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/05_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/06_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/06_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/07_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/07_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/08_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/08_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/09_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/09_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/10_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/10_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Commands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tests.java" afterDir="false" />
+    <list default="true" id="85163092-5db6-49d4-981b-52d794057ea1" name="Changes" comment="Test1 working">
+      <change afterPath="$PROJECT_DIR$/src/AdminClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AudienceClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CineReviews.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CineReviewsClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CriticClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/NoUserException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/NotAdministratorException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Show.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserAbstract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +23,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,26 +41,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Tests" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests.test01">
+  <component name="RunManager" selected="JUnit.Tests.test03">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Projecto2" />
@@ -94,8 +81,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.test02" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projecto2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="test02" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.test03" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projecto2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="test03" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Tests.test03" />
+        <item itemvalue="JUnit.Tests.test02" />
         <item itemvalue="JUnit.Tests.test01" />
         <item itemvalue="Application.Main" />
       </list>
@@ -110,6 +119,14 @@
       <option name="presentableId" value="Default" />
       <updated>1684961721179</updated>
     </task>
+    <task id="LOCAL-00001" summary="Test1 working">
+      <created>1684971575996</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684971575998</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,5 +139,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test1 working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test1 working" />
   </component>
 </project>
