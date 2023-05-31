@@ -1,6 +1,6 @@
 import Exceptions.UserException;
 
-public class AdminClass extends UserAbstract{
+public class AdminClass extends PersonAbstract<Show>{
     private static final String INVALID_AUTH = "Invalid authentication!";
 
     private final String password;
@@ -11,6 +11,11 @@ public class AdminClass extends UserAbstract{
     @Override
     public boolean isAdministrator() {
         return true;
+    }
+
+    @Override
+    public boolean isArtist() {
+        return false;
     }
 
     public int numberMovies(){

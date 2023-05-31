@@ -3,13 +3,18 @@ import Exceptions.*;
 import java.util.*;
 
 public class CineReviewsClass implements CineReviews{
+
     private static final String UNKNOWN_TYPE = "Unknown user type!";
     private static final String USER_EXISTS = "User %s already exists!";
     private static final String NO_USERS = "No users registered.";
     private static final String ADMIN_NOT_FOUND = "Admin %s does not exist!";
     private static final String SHOW_EXISTS = "Show %s already exists!";
+    private LinkedList<Person> users;
+    private LinkedList<Show> shows;
     private final SortedMap<String, User> users;
+
     public CineReviewsClass(){
+        shows = new LinkedList<>();
         users = new TreeMap<>();
     }
 
@@ -78,10 +83,45 @@ public class CineReviewsClass implements CineReviews{
     }
 
     @Override
-    public void addMovie(String title, String director, int duration, String certification, int year,
-                         String[] genres, String[] cast) throws CineReviewsException{
-        if(hasShow(title)) throw new CineReviewsException(String.format(SHOW_EXISTS, title));
+    public void addMovie(String title, String director, int duration, String certification, int year, String[] genres, String[] cast) {
+        addArtistInfo(director,null,null);
+        for(String c : cast){
+           addArtistInfo(c,null,null);
+        }
+        //tirar de users todos os artistas recém criados e guardar num array de users
+        LinkedList<Person> cast2 = new LinkedList<>();
+        for(String a : cast){
+            cast2.add(getUser(a));
+        }
+        Person director2 = getUser(director);
+        shows.add(new MovieClass(title,director2,duration,certification,year,genres,cast2));
+    }
+    private void addArtist(String name, String birthplace, String birthday) throws NoUserException{
+        if(!hasPerson(name))
+            users.add(new ArtistClass(name,birthplace,birthday));
+        else throw new NoUserException();
+    }
 
+    /**
+     * @param name
+     * @param birthplace
+     * @param birthday
+     */
+    public void addArtistInfo(String name, String birthplace, String birthday) {
+        try {
+            addArtist(name, birthplace, birthday);
+        } catch (NoUserException e) {
+            if (getUser(name).isArtist())
+                ((ArtistClass) getUser(name)).addInfo(birthplace, birthday);
+        }
+    }
 
+        private Person getUser(String name){
+        for(Person u : users){
+            if(u.getName().equals(name)){
+                return u;
+            }
+        }
+        return null;
     }
 }

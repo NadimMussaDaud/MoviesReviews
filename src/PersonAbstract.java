@@ -2,18 +2,21 @@ import Exceptions.UserException;
 
 import java.util.LinkedList;
 
-abstract class UserAbstract<T> implements User {
+abstract class PersonAbstract<T> implements Person {
+
+    protected String name;
     protected LinkedList<T> media;
-    public UserAbstract() {
+
+    public PersonAbstract() {
         media = new LinkedList<>();
     }
     public int numberUploads(){
         return media.size();
     }
 
-    public boolean isAdministrator(){
-        return false;
-    }
+    public abstract boolean isAdministrator();
+
+
 
     public void authenticate(String password) throws UserException {}
 }

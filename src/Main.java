@@ -16,6 +16,8 @@ public class Main {
     private static final String EXIT_MESSAGE = "Bye!";
     private static final String UNKNOWN_COMMAND_FORMAT = "%s %s\n";
     private static final String UNKNOWN_TYPE = "Unknown user type!";
+    private static final String USER_EXISTS = "Person %s already exists!\n";
+    private static final String USER_REGISTERED = "Person %s was registered as %s.\n";
     private static final String USER_EXISTS = "User %s already exists!\n";
     private static final String USER_REGISTERED = "User %s was registered as %s.\n";
     private static final String USERS_CMD_HEADER = "All registered users:";
@@ -23,13 +25,13 @@ public class Main {
     private static final String USERS_CMD_USER_FORMAT = "User %s has posted %d reviews\n";
     private static final String ADD_MOVIE_SUCCESS = "Show %s was added by %s.\n";
 
-    public static void main(String[] args) throws NoUserException {
+    public static void main(String[] args) throws NoUserException, NotAdministratorException {
         commands();
     }
 
     /**
-     * @param command the name of the command
      * @returns the command with the given name or UNKNOWN if the command does not exist
+     * @param command the name of the command
      */
     private static Commands getCommand(String command) {
         for (Commands c : Commands.values()) {
@@ -43,7 +45,7 @@ public class Main {
     /**
      * Main command, reads command input and calls the appropriate method.
      */
-    private static void commands() throws NoUserException {
+    private static void commands() throws NoUserException, NotAdministratorException {
         Scanner in = new Scanner(System.in);
         CineReviews system = new CineReviewsClass();
 
@@ -126,7 +128,7 @@ public class Main {
     /**
      * Registers a new movie
      */
-    private static void movie(Scanner in, CineReviews system) throws NoUserException {
+    private static void movie(Scanner in, CineReviews system) throws NoUserException, NotAdministratorException {
         String admin = in.next();
         String password = in.nextLine().trim();
         String title = in.nextLine().trim();

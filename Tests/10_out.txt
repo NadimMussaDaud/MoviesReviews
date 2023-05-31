@@ -1,13 +1,13 @@
-User Roger.Ebert was registered as critic.
-User Eve was registered as audience.
-User Alice was registered as audience.
-User Bob was registered as audience.
-User Din.Grogu was registered as admin.
-User Peter.Bradshaw was registered as critic.
-User Bo-Katan.Kryze was registered as admin.
-User Din.Djarin was registered as admin.
-User Kaleena.Rivera was registered as critic.
-User Dustin.Rowles was registered as critic.
+Person Roger.Ebert was registered as critic.
+Person Eve was registered as audience.
+Person Alice was registered as audience.
+Person Bob was registered as audience.
+Person Din.Grogu was registered as admin.
+Person Peter.Bradshaw was registered as critic.
+Person Bo-Katan.Kryze was registered as admin.
+Person Din.Djarin was registered as admin.
+Person Kaleena.Rivera was registered as critic.
+Person Dustin.Rowles was registered as critic.
 Movie A Quiet Place (2018) was uploaded [5 new artists were created].
 A Quiet Place; 2018; director [movie]
 Series Peaky Blinders (2014) was uploaded [8 new artists were created].

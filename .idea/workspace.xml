@@ -7,6 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="85163092-5db6-49d4-981b-52d794057ea1" name="Changes" comment="ArtisClass extends PersonAbstract(que antes se chamava UserAbstract)">
+      <change afterPath="$PROJECT_DIR$/src/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ReviewClass.java" afterDir="false" />
     <list default="true" id="85163092-5db6-49d4-981b-52d794057ea1" name="Changes" comment="users command exception rework.&#10;&#10;-Users method no longer has checks, only handles exceptions.&#10;-Error messages in register command are stored in the exception.&#10;-Replaced loose strings with constants">
       <change afterPath="$PROJECT_DIR$/src/AbstractShow.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/MovieClass.java" afterDir="false" />
@@ -21,6 +24,17 @@
       <change beforePath="$PROJECT_DIR$/src/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Show.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserAbstract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdminClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Artist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArtistClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArtistClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AudienceClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AudienceClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CriticClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CriticClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShowsAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowsAbstract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PersonAbstract.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +62,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Downloaded.Files.Path.Enabled": "false",
@@ -69,7 +94,7 @@
     "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
     "vue.rearranger.settings.migration": "true"
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -153,6 +178,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684971575998</updated>
     </task>
+    <task id="LOCAL-00002" summary="Sem erros">
+      <created>1685544194280</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685544194280</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ArtisClass extends PersonAbstract(que antes se chamava UserAbstract)">
+      <created>1685547082033</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685547082033</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <task id="LOCAL-00002" summary="Register command exception rework.&#10;&#10;-Added CineReviewsException for all exceptions relating to the CineReviews class.&#10;-Register method no longer has checks, only handles exceptions.&#10;-Error messages in register command are stored in the exception.">
       <created>1685546337745</created>
       <option name="number" value="00002" />
@@ -189,5 +229,8 @@
     <MESSAGE value="Register command exception rework.&#10;&#10;-Added CineReviewsException for all exceptions relating to the CineReviews class.&#10;-Register method no longer has checks, only handles exceptions.&#10;-Error messages in register command are stored in the exception." />
     <MESSAGE value="users command exception rework.&#10;&#10;-Users method no longer has checks, only handles exceptions.&#10;-Error messages in register command are stored in the exception.&#10;-Replaced loose strings with constants" />
     <option name="LAST_COMMIT_MESSAGE" value="users command exception rework.&#10;&#10;-Users method no longer has checks, only handles exceptions.&#10;-Error messages in register command are stored in the exception.&#10;-Replaced loose strings with constants" />
+    <MESSAGE value="Sem erros" />
+    <MESSAGE value="ArtisClass extends PersonAbstract(que antes se chamava UserAbstract)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ArtisClass extends PersonAbstract(que antes se chamava UserAbstract)" />
   </component>
 </project>
