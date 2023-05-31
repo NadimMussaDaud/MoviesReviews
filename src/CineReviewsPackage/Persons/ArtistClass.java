@@ -1,3 +1,7 @@
+package CineReviewsPackage.Persons;
+
+import CineReviewsPackage.Shows.Show;
+
 public class ArtistClass extends PersonAbstract<Show> {
     private String name, birthday,birthplace;
     public ArtistClass(String birthday, String birthplace) {

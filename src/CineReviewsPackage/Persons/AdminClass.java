@@ -1,4 +1,7 @@
-import Exceptions.UserException;
+package CineReviewsPackage.Persons;
+
+import CineReviewsPackage.Exceptions.UserException;
+import CineReviewsPackage.Shows.Show;
 
 public class AdminClass extends PersonAbstract<Show>{
     private static final String INVALID_AUTH = "Invalid authentication!";

@@ -1,4 +1,4 @@
-package Exceptions;
+package CineReviewsPackage.Exceptions;
 
 public class UserException extends Exception{
     public UserException(String message){

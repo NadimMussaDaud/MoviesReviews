@@ -1,3 +1,7 @@
+package CineReviewsPackage.Persons;
+
+import CineReviewsPackage.Review;
+
 public class AudienceClass extends PersonAbstract<Review>{
     public AudienceClass() {
     }

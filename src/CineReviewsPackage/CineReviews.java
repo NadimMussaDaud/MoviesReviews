@@ -1,9 +1,11 @@
-import Exceptions.CineReviewsException;
-import Exceptions.NoUserException;
-import Exceptions.NotAdministratorException;
-import Exceptions.UserException;
+package CineReviewsPackage;
+
+import CineReviewsPackage.Exceptions.CineReviewsException;
+import CineReviewsPackage.Exceptions.UserException;
+import CineReviewsPackage.Persons.Person;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public interface CineReviews {
@@ -21,5 +23,5 @@ public interface CineReviews {
     boolean hasShow(String title);
 
     void addMovie(String title, String director, int duration, String certification, int year,
-                  String[] genres, String[] cast) throws CineReviewsException;
+                  List<String> genres, List<String> cast) throws CineReviewsException;
 }

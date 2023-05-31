@@ -2,13 +2,12 @@
  * Autores: Lucas e Nadim Mussá Daud
  */
 
-import Exceptions.CineReviewsException;
-import Exceptions.NoUserException;
-import Exceptions.NotAdministratorException;
+import CineReviewsPackage.CineReviews;
+import CineReviewsPackage.CineReviewsClass;
+import CineReviewsPackage.Persons.Person;
+import CineReviewsPackage.Exceptions.CineReviewsException;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -16,12 +15,12 @@ public class Main {
     private static final String EXIT_MESSAGE = "Bye!";
     private static final String UNKNOWN_COMMAND_FORMAT = "%s %s\n";
     private static final String UNKNOWN_TYPE = "Unknown user type!";
-    private static final String USER_EXISTS = "Person %s already exists!\n";
-    private static final String USER_REGISTERED = "Person %s was registered as %s.\n";
+    private static final String USER_EXISTS = "CineReviewsPackage.Persons.Person %s already exists!\n";
+    private static final String USER_REGISTERED = "CineReviewsPackage.Persons.Person %s was registered as %s.\n";
     private static final String USERS_CMD_HEADER = "All registered users:";
     private static final String USERS_CMD_ADMIN_FORMAT = "Admin %s has uploaded %d shows\n";
     private static final String USERS_CMD_USER_FORMAT = "User %s has posted %d reviews\n";
-    private static final String ADD_MOVIE_SUCCESS = "Show %s was added by %s.\n";
+    private static final String ADD_MOVIE_SUCCESS = "CineReviewsPackage.Shows.Show %s was added by %s.\n";
 
     public static void main(String[] args){
         commands();
@@ -137,24 +136,24 @@ public class Main {
         int year = in.nextInt();
         in.nextLine();
 
-        String[] genres = readStringArray(in);
-        String[] cast = readStringArray(in);
+        List<String> genres = readStringArray(in);
+        List<String> cast = readStringArray(in);
 
         try {
             system.authenticate(admin, password);
             system.addMovie(title, director, duration, certification, year, genres, cast);
-            System.out.printf("Show %s was added by %s.\n", title, admin);
+            System.out.printf("CineReviewsPackage.Shows.Show %s was added by %s.\n", title, admin);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    private static String[] readStringArray(Scanner in) {
+    private static List<String> readStringArray(Scanner in) {
         int amountToRead = in.nextInt();
         in.nextLine();
-        String[] array = new String[amountToRead];
+        List<String> array = new LinkedList<>();
         for (int i = 0; i < amountToRead; i++) {
-            array[i] = in.nextLine().trim();
+            array.add(in.nextLine().trim());
         }
         return array;
     }

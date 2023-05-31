@@ -1,13 +1,13 @@
-Person Roger.Ebert was registered as critic.
-Person Eve was registered as audience.
-Person Alice was registered as audience.
-Person Bob was registered as audience.
-Person Din.Grogu was registered as admin.
-Person Peter.Bradshaw was registered as critic.
-Person Bo-Katan.Kryze was registered as admin.
-Person Din.Djarin was registered as admin.
-Person Kaleena.Rivera was registered as critic.
-Person Dustin.Rowles was registered as critic.
+CineReviewsPackage.Persons.Person Roger.Ebert was registered as critic.
+CineReviewsPackage.Persons.Person Eve was registered as audience.
+CineReviewsPackage.Persons.Person Alice was registered as audience.
+CineReviewsPackage.Persons.Person Bob was registered as audience.
+CineReviewsPackage.Persons.Person Din.Grogu was registered as admin.
+CineReviewsPackage.Persons.Person Peter.Bradshaw was registered as critic.
+CineReviewsPackage.Persons.Person Bo-Katan.Kryze was registered as admin.
+CineReviewsPackage.Persons.Person Din.Djarin was registered as admin.
+CineReviewsPackage.Persons.Person Kaleena.Rivera was registered as critic.
+CineReviewsPackage.Persons.Person Dustin.Rowles was registered as critic.
 Movie A Quiet Place (2018) was uploaded [5 new artists were created].
 A Quiet Place; 2018; director [movie]
 Series Peaky Blinders (2013) was uploaded [8 new artists were created].
@@ -26,7 +26,7 @@ Series Stranger Things (2016) was uploaded [4 new artists were created].
 Movie Elysium (2013) was uploaded [3 new artists were created].
 Movie The Death of Stalin (2017) was uploaded [5 new artists were created].
 Movie Zootropolis (2016) was uploaded [5 new artists were created].
-Show Star Wars: Episode VIII - The Last Jedi already exists!
+CineReviewsPackage.Shows.Show Star Wars: Episode VIII - The Last Jedi already exists!
 Movie Paddington 2 (2017) was uploaded [9 new artists were created].
 Movie Monsters, Inc. (2001) was uploaded [4 new artists were created].
 All shows:
@@ -48,39 +48,39 @@ The Office; Greg Daniels; 9; 15+; 2005; Comedy; Steve Carell; Jenna Fischer; Joh
 The Power of the Dog; Jane Campion; 126; 12A; 2021; Drama; Benedict Cumberbatch; Kirsten Dunst
 Zootropolis; Byron Howard; 108; 7A; 2016; Animation; Ginnifer Goodwin; Jason Bateman; Idris Elba
 All registered users:
-Person Alice has posted 0 reviews
+CineReviewsPackage.Persons.Person Alice has posted 0 reviews
 Admin Bo-Katan.Kryze has uploaded 6 shows
-Person Bob has posted 0 reviews
+CineReviewsPackage.Persons.Person Bob has posted 0 reviews
 Admin Din.Djarin has uploaded 7 shows
 Admin Din.Grogu has uploaded 4 shows
-Person Dustin.Rowles has posted 0 reviews
-Person Eve has posted 0 reviews
-Person Kaleena.Rivera has posted 0 reviews
-Person Peter.Bradshaw has posted 0 reviews
-Person Roger.Ebert has posted 0 reviews
-Show The Power of the Dog has no reviews.
-Review for The Power of the Dog was registered [1 reviews].
-Review for Star Wars: Episode VIII - The Last Jedi was registered [1 reviews].
-Review for Peaky Blinders was registered [1 reviews].
-Review for Peaky Blinders was registered [2 reviews].
-Review for Peaky Blinders was registered [3 reviews].
-Review for Star Wars: Episode VIII - The Last Jedi was registered [2 reviews].
-Review for Star Wars: Episode VIII - The Last Jedi was registered [3 reviews].
-Review for Peaky Blinders was registered [4 reviews].
+CineReviewsPackage.Persons.Person Dustin.Rowles has posted 0 reviews
+CineReviewsPackage.Persons.Person Eve has posted 0 reviews
+CineReviewsPackage.Persons.Person Kaleena.Rivera has posted 0 reviews
+CineReviewsPackage.Persons.Person Peter.Bradshaw has posted 0 reviews
+CineReviewsPackage.Persons.Person Roger.Ebert has posted 0 reviews
+CineReviewsPackage.Shows.Show The Power of the Dog has no reviews.
+CineReviewsPackage.Review for The Power of the Dog was registered [1 reviews].
+CineReviewsPackage.Review for Star Wars: Episode VIII - The Last Jedi was registered [1 reviews].
+CineReviewsPackage.Review for Peaky Blinders was registered [1 reviews].
+CineReviewsPackage.Review for Peaky Blinders was registered [2 reviews].
+CineReviewsPackage.Review for Peaky Blinders was registered [3 reviews].
+CineReviewsPackage.Review for Star Wars: Episode VIII - The Last Jedi was registered [2 reviews].
+CineReviewsPackage.Review for Star Wars: Episode VIII - The Last Jedi was registered [3 reviews].
+CineReviewsPackage.Review for Peaky Blinders was registered [4 reviews].
 Reviews of Star Wars: Episode VIII - The Last Jedi [4.0]:
-Review of Dustin.Rowles (critic): May the Fourth be with you! [excellent]
-Review of Peter.Bradshaw (critic): The movie Star Wars: Episode VIII - The Last Jedi was good [good]
-Review of Kaleena.Rivera (critic): Fun(ish) :-| [average]
+CineReviewsPackage.Review of Dustin.Rowles (critic): May the Fourth be with you! [excellent]
+CineReviewsPackage.Review of Peter.Bradshaw (critic): The movie Star Wars: Episode VIII - The Last Jedi was good [good]
+CineReviewsPackage.Review of Kaleena.Rivera (critic): Fun(ish) :-| [average]
 Reviews of Peaky Blinders [3.9]:
-Review of Kaleena.Rivera (critic): One of the most daft hours of the tv week! [good]
-Review of Roger.Ebert (critic): One of the most daft and thrilling hours of the tv week! [good]
-Review of Eve (audience): Peaky Blinders goes out in predictably thrilling fashion! [excellent]
-Review of Alice (audience): Terrible show! [poor]
-Review for Peaky Blinders was registered [5 reviews].
+CineReviewsPackage.Review of Kaleena.Rivera (critic): One of the most daft hours of the tv week! [good]
+CineReviewsPackage.Review of Roger.Ebert (critic): One of the most daft and thrilling hours of the tv week! [good]
+CineReviewsPackage.Review of Eve (audience): Peaky Blinders goes out in predictably thrilling fashion! [excellent]
+CineReviewsPackage.Review of Alice (audience): Terrible show! [poor]
+CineReviewsPackage.Review for Peaky Blinders was registered [5 reviews].
 Reviews of Peaky Blinders [4.2]:
-Review of Dustin.Rowles (critic): Excellent series! [excellent]
-Review of Kaleena.Rivera (critic): One of the most daft hours of the tv week! [good]
-Review of Roger.Ebert (critic): One of the most daft and thrilling hours of the tv week! [good]
-Review of Eve (audience): Peaky Blinders goes out in predictably thrilling fashion! [excellent]
-Review of Alice (audience): Terrible show! [poor]
+CineReviewsPackage.Review of Dustin.Rowles (critic): Excellent series! [excellent]
+CineReviewsPackage.Review of Kaleena.Rivera (critic): One of the most daft hours of the tv week! [good]
+CineReviewsPackage.Review of Roger.Ebert (critic): One of the most daft and thrilling hours of the tv week! [good]
+CineReviewsPackage.Review of Eve (audience): Peaky Blinders goes out in predictably thrilling fashion! [excellent]
+CineReviewsPackage.Review of Alice (audience): Terrible show! [poor]
 Bye!

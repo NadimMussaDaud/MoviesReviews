@@ -1,12 +1,12 @@
-Person Din.Grogu was registered as admin.
-Person Bo-Katan.Kryze was registered as admin.
-Person Din.Djarin was registered as admin.
-Person Roger.Ebert was registered as critic.
+CineReviewsPackage.Persons.Person Din.Grogu was registered as admin.
+CineReviewsPackage.Persons.Person Bo-Katan.Kryze was registered as admin.
+CineReviewsPackage.Persons.Person Din.Djarin was registered as admin.
+CineReviewsPackage.Persons.Person Roger.Ebert was registered as critic.
 All registered users:
 Admin Bo-Katan.Kryze has uploaded 0 shows
 Admin Din.Djarin has uploaded 0 shows
 Admin Din.Grogu has uploaded 0 shows
-Person Roger.Ebert has posted 0 reviews
+CineReviewsPackage.Persons.Person Roger.Ebert has posted 0 reviews
 No shows have been uploaded.
 Series Stranger Things (2016) was uploaded [2 new artists were created].
 Movie A Quiet Place (2018) was uploaded [2 new artists were created].
@@ -15,13 +15,13 @@ Admin Alice does not exist!
 Admin Roger.Ebert does not exist!
 Invalid authentication!
 Movie Dune (2019) was uploaded [2 new artists were created].
-Show Dune already exists!
-Show Dune already exists!
+CineReviewsPackage.Shows.Show Dune already exists!
+CineReviewsPackage.Shows.Show Dune already exists!
 All registered users:
 Admin Bo-Katan.Kryze has uploaded 0 shows
 Admin Din.Djarin has uploaded 3 shows
 Admin Din.Grogu has uploaded 1 shows
-Person Roger.Ebert has posted 0 reviews
+CineReviewsPackage.Persons.Person Roger.Ebert has posted 0 reviews
 All shows:
 A Quiet Place; John Krasinski; 90; 16A; 2018; Drama; Emily Blunt; John Krasinski
 Dune; Denis Villeneuve; 155; 12A; 2019; Action; Timothee Chalamet

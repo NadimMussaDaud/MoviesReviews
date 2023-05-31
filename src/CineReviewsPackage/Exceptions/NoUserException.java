@@ -1,4 +1,4 @@
-package Exceptions;
+package CineReviewsPackage.Exceptions;
 
 public class NoUserException extends Throwable {
     public NoUserException() {

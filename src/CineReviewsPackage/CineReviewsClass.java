@@ -1,4 +1,9 @@
-import Exceptions.*;
+package CineReviewsPackage;
+
+import CineReviewsPackage.Exceptions.*;
+import CineReviewsPackage.Persons.*;
+import CineReviewsPackage.Shows.MovieClass;
+import CineReviewsPackage.Shows.Show;
 
 import java.util.*;
 
@@ -8,12 +13,12 @@ public class CineReviewsClass implements CineReviews{
     private static final String USER_EXISTS = "User %s already exists!";
     private static final String NO_USERS = "No users registered.";
     private static final String ADMIN_NOT_FOUND = "Admin %s does not exist!";
-    private static final String SHOW_EXISTS = "Show %s already exists!";
-    private LinkedList<Show> shows;
+    private static final String SHOW_EXISTS = "CineReviewsPackage.Shows.Show %s already exists!";
+    private SortedMap<String, Show> shows;
     private final SortedMap<String, Person> persons;
 
     public CineReviewsClass(){
-        shows = new LinkedList<>();
+        shows = new TreeMap<>();
         persons = new TreeMap<>();
     }
 
@@ -42,7 +47,7 @@ public class CineReviewsClass implements CineReviews{
 
     @Override
     public boolean hasUsers() {
-        return persons.size()==0;
+        return persons.isEmpty();
     }
 
     @Override
@@ -76,32 +81,38 @@ public class CineReviewsClass implements CineReviews{
     }
 
     @Override
-    public void addMovie(String title, String director, int duration, String certification, int year, String[] genres, String[] cast) {
+    public void addMovie(String title, String director, int duration, String certification, int year, List<String> genres, List<String> cast) throws CineReviewsException {
         addArtistInfo(director,null,null);
         for(String c : cast){
            addArtistInfo(c,null,null);
         }
         //tirar de users todos os artistas recém criados e guardar num array de users
-        LinkedList<Person> cast2 = new LinkedList<>();
+        List<Person> castPersons = new LinkedList<>();
         for(String a : cast){
-            cast2.add(persons.get(a));
+            castPersons.add(persons.get(a));
         }
-        Person director2 = persons.get(director);
-        shows.add(new MovieClass(title,director2,duration,certification,year,genres,cast2));
+        Person directorPerson = persons.get(director);
+
+        Show s = new MovieClass(directorPerson,duration,certification,year,genres,castPersons);
+        shows.put(title, s);
+
+        for(Person p : castPersons)
+            p.addMedia(s);
+
     }
 
-    private void addArtist(String name, String birthplace, String birthday) throws NoUserException{
+    private void addArtist(String name, String birthplace, String birthday) throws CineReviewsException{
         if(!persons.containsKey(name))
             persons.put(name, new ArtistClass(birthplace,birthday));
-        else throw new NoUserException();
+        else throw new CineReviewsException("");
     }
 
 
     public void addArtistInfo(String name, String birthplace, String birthday) {
         try {
             addArtist(name, birthplace, birthday);
-        } catch (NoUserException e) {
-            if (persons.get(name).isArtist())
+        } catch (CineReviewsException e) {
+            if (persons.get(name) instanceof ArtistClass)
                 ((ArtistClass) persons.get(name)).addInfo(birthplace, birthday);
         }
     }
