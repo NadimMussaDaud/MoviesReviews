@@ -34,6 +34,6 @@ Nota1: *Diagrama de Classes*
 
         PersonAbstract(implements PersonInterface)
         
-AdminClass CriticClass AudienceClass ArtistClass (Todas extends PersonAbstract) 
+    AdminClass  CriticClass  AudienceClass  ArtistClass (Todas extends PersonAbstract) 
  
 Nota2: Shows contém HashMap<ArtistClass artist, String role> 
