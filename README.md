@@ -1,7 +1,7 @@
 **ACRESCENTAR O QUE FOR NECESSÁRIO FAZER**
 
 ********************
-OPINÕES SÃO BEM-VINDAS
+SUGESTÕES SÃO BEM-VINDAS
 ********************
 
 DICA: INSTALAR **COPILOT**
