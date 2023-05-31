@@ -38,3 +38,6 @@ Nota1: *Diagrama de Classes*
     AdminClass  CriticClass  AudienceClass  ArtistClass (Todas extends PersonAbstract) 
  
 Nota2: Shows contém HashMap<ArtistClass artist, String role> 
+
+
+Nota3: Diretor e Criador são considerados a mesma coisa (UTILIZAR director PARA REFERIR UM DELES)
