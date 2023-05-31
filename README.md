@@ -17,10 +17,10 @@ Funcionalidade:
 2. HELP() **DONE**
 3. REGISTER() **DONE**
 4. USERS() **DONE**
-5. MOVIE() 
+5. MOVIE() Nadim
 6. SERIES()
-7. SHOWS()
-8. ARTIST()
+7. SHOWS() Nadim
+8. ARTIST() Nadim
 9. CREDITS()
 10. REVIEW()
 11. REVIEWS()
