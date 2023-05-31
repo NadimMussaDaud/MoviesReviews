@@ -9,7 +9,8 @@ DICA: INSTALAR **COPILOT**
 Qualidade de código:
 1. Por exceções nos metodos já feitos E no resto dos métodos.
 2. Comentar código ao fazer os métodos.
-3. 
+3. Utilizar Genéricos se for melhor
+4. 
 
 Funcionalidade:
 1. Exit() **DONE**
