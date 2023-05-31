@@ -1,11 +1,16 @@
 **ACRESCENTAR O QUE FOR NECESSÁRIO FAZER**
 
+********************
+SUGESTÕES SÃO BEM-VINDAS
+********************
+
 DICA: INSTALAR **COPILOT**
 
 Qualidade de código:
 1. Por exceções nos metodos já feitos E no resto dos métodos.
 2. Comentar código ao fazer os métodos.
-3. 
+3. Utilizar Genéricos se for melhor
+4. 
 
 Funcionalidade:
 1. Exit() **DONE**
@@ -22,3 +27,17 @@ Funcionalidade:
 12. GENRE()
 13. RELEASED()
 14. AVOIDERS()
+
+
+Nota1: *Diagrama de Classes*
+
+                  PersonInterface
+
+        PersonAbstract(implements PersonInterface)
+        
+    AdminClass  CriticClass  AudienceClass  ArtistClass (Todas extends PersonAbstract) 
+ 
+Nota2: Shows contém HashMap<ArtistClass artist, String role> 
+
+
+Nota3: Diretor e Criador são considerados a mesma coisa (UTILIZAR director PARA REFERIR UM DELES)
