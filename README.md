@@ -22,8 +22,8 @@ Funcionalidade:
 7. SHOWS() Lucas
 8. ARTIST() Nadim
 9. CREDITS()
-10. REVIEW()
-11. REVIEWS()
+10. REVIEW() Lucas
+11. REVIEWS() Lucas
 12. GENRE()
 13. RELEASED()
 14. AVOIDERS()
