@@ -11,7 +11,7 @@ public interface CineReviews {
     void register(String type, String name, String password);
 
     boolean hasUsers();
-    Iterator<User> getUsers();
+    Iterator<Person> getUsers();
 
     boolean isAdmin(String admin) throws NoUserException, NotAdministratorException;
 

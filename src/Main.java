@@ -14,8 +14,8 @@ public class Main {
     private static final  String  EXIT_MESSAGE = "Bye!";
     private static final String UNKNOWN_COMMAND_FORMAT = "%s %s\n";
     private static final String UNKNOWN_TYPE = "Unknown user type!";
-    private static final String USER_EXISTS = "User %s already exists!\n";
-    private static final String USER_REGISTERED = "User %s was registered as %s.\n";
+    private static final String USER_EXISTS = "Person %s already exists!\n";
+    private static final String USER_REGISTERED = "Person %s was registered as %s.\n";
 
     public static void main(String[] args) throws NoUserException, NotAdministratorException {
         commands();
@@ -106,13 +106,13 @@ public class Main {
             System.out.println("No users registered.");
         } else {
             System.out.println("All registered users:");
-            Iterator<User> it = system.getUsers();
+            Iterator<Person> it = system.getUsers();
             while (it.hasNext()) {
-                User user = it.next();
+                Person user = it.next();
                 if (user.isAdministrator())
                     System.out.printf("Admin %s has uploaded %d shows\n", user.getName(), user.numberUploads());
                 else
-                    System.out.printf("User %s has posted %d reviews\n", user.getName(), user.numberUploads());
+                    System.out.printf("Person %s has posted %d reviews\n", user.getName(), user.numberUploads());
             }
         }
     }

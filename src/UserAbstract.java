@@ -1,10 +1,10 @@
 import java.util.LinkedList;
 
-abstract class UserAbstract<T> implements User {
+abstract class PersonAbstract<T> implements Person {
 
     protected String name;
     protected LinkedList<T> media;
-    public UserAbstract(String name) {
+    public PersonAbstract(String name) {
         this.name = name;
         media = new LinkedList<>();
     }

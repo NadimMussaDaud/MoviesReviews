@@ -1,4 +1,4 @@
-public class AdminClass extends UserAbstract{
+public class AdminClass extends PersonAbstract{
 
     private String password;
     public AdminClass(String name, String password) {

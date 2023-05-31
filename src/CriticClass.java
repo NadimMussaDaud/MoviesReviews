@@ -1,4 +1,4 @@
-public class CriticClass extends UserAbstract{
+public class CriticClass extends PersonAbstract{
     public CriticClass(String name) {
         super(name);
     }

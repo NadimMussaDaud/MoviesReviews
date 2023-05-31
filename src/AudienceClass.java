@@ -1,4 +1,4 @@
-public class AudienceClass extends UserAbstract{
+public class AudienceClass extends PersonAbstract{
     public AudienceClass(String name) {
         super(name);
     }

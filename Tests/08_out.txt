@@ -1,13 +1,13 @@
-User Roger.Ebert was registered as critic.
-User Eve was registered as audience.
-User Alice was registered as audience.
-User Bob was registered as audience.
-User Din.Grogu was registered as admin.
-User Peter.Bradshaw was registered as critic.
-User Bo-Katan.Kryze was registered as admin.
-User Din.Djarin was registered as admin.
-User Kaleena.Rivera was registered as critic.
-User Dustin.Rowles was registered as critic.
+Person Roger.Ebert was registered as critic.
+Person Eve was registered as audience.
+Person Alice was registered as audience.
+Person Bob was registered as audience.
+Person Din.Grogu was registered as admin.
+Person Peter.Bradshaw was registered as critic.
+Person Bo-Katan.Kryze was registered as admin.
+Person Din.Djarin was registered as admin.
+Person Kaleena.Rivera was registered as critic.
+Person Dustin.Rowles was registered as critic.
 Movie A Quiet Place (2018) was uploaded [5 new artists were created].
 A Quiet Place; 2018; director [movie]
 Series Peaky Blinders (2013) was uploaded [8 new artists were created].
@@ -48,18 +48,18 @@ The Office; Greg Daniels; 9; 15+; 2005; Comedy; Steve Carell; Jenna Fischer; Joh
 The Power of the Dog; Jane Campion; 126; 12A; 2021; Drama; Benedict Cumberbatch; Kirsten Dunst
 Zootropolis; Byron Howard; 108; 7A; 2016; Animation; Ginnifer Goodwin; Jason Bateman; Idris Elba
 All registered users:
-User Alice has posted 0 reviews
+Person Alice has posted 0 reviews
 Admin Bo-Katan.Kryze has uploaded 6 shows
-User Bob has posted 0 reviews
+Person Bob has posted 0 reviews
 Admin Din.Djarin has uploaded 7 shows
 Admin Din.Grogu has uploaded 4 shows
-User Dustin.Rowles has posted 0 reviews
-User Eve has posted 0 reviews
-User Kaleena.Rivera has posted 0 reviews
-User Peter.Bradshaw has posted 0 reviews
-User Roger.Ebert has posted 0 reviews
+Person Dustin.Rowles has posted 0 reviews
+Person Eve has posted 0 reviews
+Person Kaleena.Rivera has posted 0 reviews
+Person Peter.Bradshaw has posted 0 reviews
+Person Roger.Ebert has posted 0 reviews
 Show The Mandalorian does not exist!
-User Ebert does not exist!
+Person Ebert does not exist!
 Admin Din.Grogu cannot review shows!
 Show The Mandalorian does not exist!
 Review for Star Wars: Episode VIII - The Last Jedi was registered [1 reviews].

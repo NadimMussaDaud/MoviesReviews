@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85163092-5db6-49d4-981b-52d794057ea1" name="Changes" comment="Test1 working">
+    <list default="true" id="85163092-5db6-49d4-981b-52d794057ea1" name="Changes" comment="Sem erros">
+      <change afterPath="$PROJECT_DIR$/src/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Artist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ArtistClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MovieClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SerieClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ShowsAbstract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/02_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/02_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/03_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/03_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/04_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/04_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/05_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/05_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/06_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/06_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/07_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/07_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/08_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/08_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/09_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/09_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/10_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/10_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviews.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exceptions/NotAdministratorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/NotAdministratorException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserAbstract.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -116,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684971575998</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Sem erros">
+      <created>1685544194280</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685544194280</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,6 +159,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test1 working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test1 working" />
+    <MESSAGE value="Sem erros" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sem erros" />
   </component>
 </project>

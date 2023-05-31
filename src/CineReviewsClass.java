@@ -6,9 +6,11 @@ import java.util.LinkedList;
 
 public class CineReviewsClass implements CineReviews{
 
-    private LinkedList<User> users;
+    private LinkedList<Person> users;
+    private LinkedList<Show> shows;
     public CineReviewsClass(){
         users = new LinkedList<>();
+        shows = new LinkedList<>();
     }
 
     @Override
@@ -43,8 +45,8 @@ public class CineReviewsClass implements CineReviews{
     }
 
     @Override
-    public Iterator<User> getUsers() {
-        users.sort(Comparator.comparing(User::getName));
+    public Iterator<Person> getUsers() {
+        users.sort(Comparator.comparing(Person::getName));
         return users.iterator();
     }
 
@@ -77,10 +79,16 @@ public class CineReviewsClass implements CineReviews{
     @Override
     public void addMovie(String title, String director, int duration, String certification, int year, String[] genres, String[] cast) {
 
+        //shows.add(new MovieClass(title,director,duration,certification,year,genres,cast));
     }
 
-    private User getUser(String name){
-        for(User u : users){
+    private void addArtistInfo(String name, String birthplace, String birthday){
+
+
+    }
+
+    private Person getUser(String name){
+        for(Person u : users){
             if(u.getName().equals(name)){
                 return u;
             }
