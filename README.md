@@ -24,7 +24,7 @@ Funcionalidade:
 9. CREDITS()
 10. REVIEW() **DONE**
 11. REVIEWS() **DONE**
-12. GENRE()
+12. GENRE() Lucas
 13. RELEASED()
 14. AVOIDERS()
 
