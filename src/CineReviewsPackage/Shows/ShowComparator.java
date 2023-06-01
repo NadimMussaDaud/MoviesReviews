@@ -5,9 +5,9 @@ import java.util.Comparator;
 public class ShowComparator implements Comparator<Show> {
     @Override
     public int compare(Show show1, Show show2) {
-        double scoreComparison = show1.getAverageReviews() - show2.getAverageReviews();
+        int scoreComparison = Double.compare(show2.getAverageReviews(), show1.getAverageReviews());
         if (scoreComparison != 0) {
-            return (int)scoreComparison;
+            return scoreComparison;
         }
 
         int yearComparison = show2.getYear() - show1.getYear();

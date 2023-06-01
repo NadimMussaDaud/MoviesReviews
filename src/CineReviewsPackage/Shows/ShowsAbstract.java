@@ -7,6 +7,7 @@ import CineReviewsPackage.Shows.Reviews.Review;
 import CineReviewsPackage.Shows.Reviews.ReviewClass;
 import CineReviewsPackage.Shows.Reviews.ReviewComparator;
 
+import javax.naming.NameNotFoundException;
 import java.util.*;
 
 abstract class ShowsAbstract implements Show {
@@ -54,7 +55,9 @@ abstract class ShowsAbstract implements Show {
 
     public int addReview(String reviewText, String rating, Person reviewer) throws ShowException {
         Review r = new ReviewClass(reviewText, rating, reviewer);
-        if(reviews.contains(r)) throw new ShowException();
+        for(Review tmp : reviews)
+            if(reviewer.getName().equals(tmp.getReviewer().getName())) throw new ShowException();
+
         reviews.add(r);
         reviewer.addMedia(r);
         return reviews.size();

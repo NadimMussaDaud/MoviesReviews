@@ -2,6 +2,8 @@ package CineReviewsPackage.Shows.Reviews;
 
 import CineReviewsPackage.Persons.Person;
 
+import java.util.Objects;
+
 public class ReviewClass implements Review{
     final Person reviewer;
     final String reviewText;

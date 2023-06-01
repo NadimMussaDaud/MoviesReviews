@@ -283,8 +283,7 @@ public class Main {
         while(matchesIt.hasNext()){
             Show s = matchesIt.next();
             String showType = (s instanceof MovieClass)? "Movie" : "Series";
-
-            System.out.printf(GENRES_FORMAT, showType, s.getTitle(), s.getCreator(), s.getYear(), s.getAverageReviews());
+            System.out.printf(GENRES_FORMAT, showType, s.getTitle(), s.getCreator().getName(), s.getYear(), s.getAverageReviews());
         }
     }
 }

@@ -171,13 +171,14 @@ public class CineReviewsClass implements CineReviews {
     }
 
     public Iterator<Show> getShowsFromGenres(List<String> genres) {
-        SortedSet<Show> toReturn = new TreeSet<>(new ShowComparator());
+        List<Show> toReturn = new ArrayList<>();
 
         for (Show s : shows.values()) {
             if (s.containsAllGenres(genres))
                 toReturn.add(s);
         }
 
+        toReturn.sort(new ShowComparator());
         return toReturn.iterator();
     }
 }
