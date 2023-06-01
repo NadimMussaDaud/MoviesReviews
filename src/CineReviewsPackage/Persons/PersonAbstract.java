@@ -5,8 +5,8 @@ import CineReviewsPackage.Exceptions.UserException;
 import java.util.LinkedList;
 
 abstract class PersonAbstract<T> implements Person {
-    String name; //storing the name is necessary due to the review sorting process only.
-    protected LinkedList<T> media;
+    final String name; //storing the name is necessary due to the review sorting process only.
+    protected final LinkedList<T> media;
 
     public PersonAbstract(String name) {
         media = new LinkedList<>();

@@ -10,6 +10,7 @@ import CineReviewsPackage.Shows.Show;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public interface CineReviews {
     boolean hasType(String type);
@@ -22,13 +23,15 @@ public interface CineReviews {
 
 
     int addShow(String title, String director, int duration, String certification, int year,
-                 List<String> genres, List<String> cast, String type, String adminName) throws CineReviewsException;
+                List<String> genres, List<String> cast, String type, String adminName) throws CineReviewsException;
 
     Iterator<Map.Entry<String, Show>> getShows() throws CineReviewsException;
 
     int addReview(String userName, String title, String review, String classification) throws CineReviewsException;
 
-    public Iterator<Review> getReviews(String showName) throws CineReviewsException;
+    Iterator<Review> getReviews(String showName) throws CineReviewsException;
 
-    public int getAverageRating(String showName);
+    int getAverageRating(String showName);
+
+    public Iterator<Show> getShowsFromGenres(Set<String> genres);
 }

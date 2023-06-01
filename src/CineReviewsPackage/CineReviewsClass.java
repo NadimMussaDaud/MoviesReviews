@@ -7,6 +7,7 @@ import CineReviewsPackage.Shows.Reviews.Review;
 import CineReviewsPackage.Shows.Reviews.ReviewClass;
 import CineReviewsPackage.Shows.SeriesClass;
 import CineReviewsPackage.Shows.Show;
+import CineReviewsPackage.Shows.ShowComparator;
 
 import java.security.PrivateKey;
 import java.util.*;
@@ -85,9 +86,9 @@ public class CineReviewsClass implements CineReviews {
 
         Show s = null;
         if (type.equals("movie"))
-            s = new MovieClass(directorPerson, durationOrSeasons, certification, year, genres, castPersons);
+            s = new MovieClass(directorPerson, title, durationOrSeasons, certification, year, genres, castPersons);
         if (type.equals("series"))
-            s = new SeriesClass(directorPerson, durationOrSeasons, certification, year, genres, castPersons);
+            s = new SeriesClass(directorPerson, title, durationOrSeasons, certification, year, genres, castPersons);
 
         shows.put(title, s);
         for (Person p : castPersons.values())
@@ -107,6 +108,7 @@ public class CineReviewsClass implements CineReviews {
         return count;
     }
 
+    @SuppressWarnings("SameReturnValue")
     private int addArtist(String name, String birthplace, String birthday) throws CineReviewsException {
         if (!persons.containsKey(name)) {
             persons.put(name, new ArtistClass(name, birthplace, birthday));
@@ -129,33 +131,44 @@ public class CineReviewsClass implements CineReviews {
         return shows.entrySet().iterator();
     }
 
-    public int addReview(String userName, String title, String review, String classification) throws CineReviewsException{
-        if(!persons.containsKey(userName)) throw new CineReviewsException(String.format(USER_NOT_FOUND, userName));
+    public int addReview(String userName, String title, String review, String classification) throws CineReviewsException {
+        if (!persons.containsKey(userName)) throw new CineReviewsException(String.format(USER_NOT_FOUND, userName));
 
         Person p = persons.get(userName);
-        if(p instanceof AdminClass) throw new CineReviewsException(String.format(ADMIN_CANNOT_REVIEW, userName));
+        if (p instanceof AdminClass) throw new CineReviewsException(String.format(ADMIN_CANNOT_REVIEW, userName));
 
-        if(!shows.containsKey(title)) throw new CineReviewsException(String.format(SHOW_NOT_FOUND, title));
+        if (!shows.containsKey(title)) throw new CineReviewsException(String.format(SHOW_NOT_FOUND, title));
         try {
             return shows.get(title).addReview(review, classification, p);
-        } catch (ShowException s){
+        } catch (ShowException s) {
             //Exception was not created inside the addReview method due to the need of knowing the username.
             throw new CineReviewsException(String.format(REVIEW_EXISTS, userName, title));
         }
     }
 
-    public Iterator<Review> getReviews(String showName) throws CineReviewsException{
-        if(!shows.containsKey(showName)) throw new CineReviewsException(String.format(SHOW_NOT_FOUND, showName));
+    public Iterator<Review> getReviews(String showName) throws CineReviewsException {
+        if (!shows.containsKey(showName)) throw new CineReviewsException(String.format(SHOW_NOT_FOUND, showName));
 
         try {
             return shows.get(showName).getReviews();
-        }catch (ShowException s){
+        } catch (ShowException s) {
             //Exception was not created inside the getReviews method due to the need of knowing the show name.
             throw new CineReviewsException(String.format(SHOW_HAS_NO_REVIEWS, showName));
         }
     }
 
-    public int getAverageRating(String showName){
+    public int getAverageRating(String showName) {
         return shows.get(showName).getAverageReviews();
+    }
+
+    public Iterator<Show> getShowsFromGenres(Set<String> genres) {
+        SortedSet<Show> toReturn = new TreeSet<>(new ShowComparator());
+
+        for (Show s : shows.values()) {
+            if (s.containsAllGenres(genres))
+                toReturn.add(s);
+        }
+
+        return toReturn.iterator();
     }
 }

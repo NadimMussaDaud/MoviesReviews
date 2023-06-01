@@ -8,6 +8,7 @@ import CineReviewsPackage.Persons.AdminClass;
 import CineReviewsPackage.Persons.CriticClass;
 import CineReviewsPackage.Persons.Person;
 import CineReviewsPackage.Exceptions.CineReviewsException;
+import CineReviewsPackage.Shows.MovieClass;
 import CineReviewsPackage.Shows.Reviews.Review;
 import CineReviewsPackage.Shows.Show;
 
@@ -30,6 +31,9 @@ public class Main {
     private static final String REVIEW_ADDED = "Review for %s was registered [%d reviews].\n";
     private static final String REVIEWS_HEADER = "Reviews of %s [%d]:\n";
     private static final String REVIEWS_FORMAT = "Review of %s (%s): %s [%s]\n";
+    private static final String GENRES_NO_SHOW_FOUND = "No show was found within the criteria.";
+    private static final String GENRES_FORMAT = "%s %s by %s released on %d [%d]\n";
+    private static final String GENRES_HEADER = "Search by genre:";
 
     public static void main(String[] args){
         commands();
@@ -66,6 +70,9 @@ public class Main {
                 case MOVIE -> show(in, system, "Movie");
                 case SERIES -> show(in, system, "Series");
                 case SHOWS -> shows(system);
+                case REVIEW -> review(in, system);
+                case REVIEWS -> reviews(in, system);
+                case GENRE -> genre(in, system);
 
             }
         } while (command != Commands.EXIT);
@@ -219,6 +226,23 @@ public class Main {
             }
         } catch (CineReviewsException c){
             System.out.println(c.getMessage());
+        }
+    }
+
+    private static void genre(Scanner in, CineReviews system){
+        in.nextLine();
+        Iterator<Show> matchesIt = system.getShowsFromGenres(new HashSet<>(readStringArray(in)));
+
+        if(!matchesIt.hasNext())
+            System.out.println(GENRES_NO_SHOW_FOUND);
+        else
+            System.out.println(GENRES_HEADER);
+
+        while(matchesIt.hasNext()){
+            Show s = matchesIt.next();
+            String showType = (s instanceof MovieClass)? "Movie" : "Series";
+
+            System.out.printf(GENRES_FORMAT, showType, s.getTitle(), s.getCreator(), s.getYear(), s.getAverageReviews());
         }
     }
 }

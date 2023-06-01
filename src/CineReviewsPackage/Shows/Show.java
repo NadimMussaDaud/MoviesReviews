@@ -6,23 +6,28 @@ import CineReviewsPackage.Shows.Reviews.Review;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public interface Show {
-    public String getCertification();
+    String getCertification();
 
-    public int getYear();
+    int getYear();
 
-    public Person getCreator();
+    Person getCreator();
 
-    public Iterator<String> getGenres();
+    Iterator<String> getGenres();
 
-    public Iterator<Map.Entry<String, Person>> getShowsPersons();
+    Iterator<Map.Entry<String, Person>> getShowsPersons();
 
-    public int getSeasonsOrDuration();
+    int getSeasonsOrDuration();
 
-    public int addReview(String reviewText, String rating, Person reviewer) throws ShowException;
+    int addReview(String reviewText, String rating, Person reviewer) throws ShowException;
 
-    public Iterator<Review> getReviews() throws ShowException;
+    Iterator<Review> getReviews() throws ShowException;
 
-    public int getAverageReviews();
+    int getAverageReviews();
+
+    public boolean containsAllGenres(Set<String> toCheck);
+
+    public String getTitle();
 }

@@ -3,9 +3,9 @@ package CineReviewsPackage.Shows.Reviews;
 import CineReviewsPackage.Persons.Person;
 
 public class ReviewClass implements Review{
-    Person reviewer;
-    String reviewText;
-    ReviewValue rating;
+    final Person reviewer;
+    final String reviewText;
+    final ReviewValue rating;
 
     public ReviewClass(String reviewText, String rating, Person reviewer) {
         this.reviewText = reviewText;

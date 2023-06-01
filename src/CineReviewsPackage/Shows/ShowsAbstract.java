@@ -15,19 +15,21 @@ import java.util.*;
  */
 
 abstract class ShowsAbstract implements Show {
-    protected String certification;
-    protected int year;
-    protected Person creator;
-    protected List<String> genres;
-    protected SortedMap<String, Person> persons;
-    protected SortedSet<Review> reviews;
+    protected final String title; //name is stored only to facilitate de Comparator.
+    protected final String certification;
+    protected final int year;
+    protected final Person creator;
+    protected final Set<String> genres;
+    protected final SortedMap<String, Person> persons;
+    protected final SortedSet<Review> reviews;
 
 
-    public ShowsAbstract(Person creator, String certification, int year, List<String> genres, SortedMap<String, Person> cast) {
+    public ShowsAbstract(Person creator, String title, String certification, int year, List<String> genres, SortedMap<String, Person> cast) {
+        this.title = title;
         this.certification = certification;
         this.year = year;
         this.creator = creator;
-        this.genres = genres;
+        this.genres = new HashSet<>(genres);
         persons = new TreeMap<>();
         persons.putAll(cast);
         reviews = new TreeSet<>(new ReviewComparator());
@@ -75,5 +77,13 @@ abstract class ShowsAbstract implements Show {
             count += (r.getReviewer() instanceof CriticClass)? 5*r.getRating().getNumber() : r.getRating().getNumber();
 
         return count/reviews.size();
+    }
+
+    public boolean containsAllGenres(Set<String> toCheck){
+        return genres.containsAll(toCheck);
+    }
+
+    public String getTitle() {
+        return title;
     }
 }

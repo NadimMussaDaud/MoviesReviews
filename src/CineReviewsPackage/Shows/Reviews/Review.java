@@ -3,9 +3,9 @@ package CineReviewsPackage.Shows.Reviews;
 import CineReviewsPackage.Persons.Person;
 
 public interface Review {
-    public String getReviewText();
+    String getReviewText();
 
-    public ReviewValue getRating();
+    ReviewValue getRating();
 
-    public Person getReviewer();
+    Person getReviewer();
 }

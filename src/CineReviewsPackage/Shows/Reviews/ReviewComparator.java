@@ -11,20 +11,17 @@ public class ReviewComparator implements Comparator<Review> {
         Person reviewer1 = o1.getReviewer();
         Person reviewer2 = o2.getReviewer();
 
-        // Sort by reviewer's class type (CriticClass first)
         if (reviewer1 instanceof CriticClass && !(reviewer2 instanceof CriticClass)) {
             return -1;
         } else if (!(reviewer1 instanceof CriticClass) && reviewer2 instanceof CriticClass) {
             return 1;
         }
 
-        // Sort by rating (highest to lowest)
         int ratingComparison = o2.getRating().compareTo(o1.getRating());
         if (ratingComparison != 0) {
             return ratingComparison;
         }
 
-        // Sort alphabetically by reviewer's username
         return reviewer1.getName().compareTo(reviewer2.getName());
     }
 }
