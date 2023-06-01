@@ -67,11 +67,20 @@ abstract class ShowsAbstract implements Show {
 
     public double getAverageReviews(){
         double count = 0;
+        double divider = 0;
 
-        for(Review r : reviews)
-            count += (r.getReviewer() instanceof CriticClass)? 5*r.getRating().getNumber() : r.getRating().getNumber();
+        for(Review r : reviews){
+            if(r.getReviewer() instanceof  CriticClass){
+                count += 5*r.getRating().getNumber();
+                divider += 5;
+            } else{
+                count += r.getRating().getNumber();
+                divider++;
+            }
+        }
 
-        return count/reviews.size();
+        if(count == 0) return 0; //stops it from returning NaN and messing up the comparator.
+        return count/divider;
     }
 
     public boolean containsAllGenres(List<String> toCheck){

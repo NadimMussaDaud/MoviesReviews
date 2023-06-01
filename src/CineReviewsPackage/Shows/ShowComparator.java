@@ -10,7 +10,7 @@ public class ShowComparator implements Comparator<Show> {
             return (int)scoreComparison;
         }
 
-        int yearComparison = Integer.compare(show1.getYear(), show2.getYear());
+        int yearComparison = show2.getYear() - show1.getYear();
         if (yearComparison != 0) {
             return yearComparison;
         }

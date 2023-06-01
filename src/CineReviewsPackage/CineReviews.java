@@ -4,6 +4,7 @@ import CineReviewsPackage.Exceptions.CineReviewsException;
 import CineReviewsPackage.Exceptions.ShowException;
 import CineReviewsPackage.Exceptions.UserException;
 import CineReviewsPackage.Persons.Person;
+import CineReviewsPackage.Shows.Artist;
 import CineReviewsPackage.Shows.Reviews.Review;
 import CineReviewsPackage.Shows.Show;
 
@@ -25,7 +26,9 @@ public interface CineReviews {
     int addShow(String title, String director, int duration, String certification, int year,
                 List<String> genres, List<String> cast, String type, String adminName) throws CineReviewsException;
 
-    int addArtistInfo(String name, String birthplace, String birthday) throws RuntimeException;
+    int addArtistInfo(String name, String birthplace, String birthday) throws CineReviewsException;
+
+    Artist getArtist(String name) throws CineReviewsException;
 
     Iterator<Map.Entry<String, Show>> getShows() throws CineReviewsException;
 

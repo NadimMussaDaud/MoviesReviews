@@ -25,11 +25,12 @@ public class Main {
     private static final String SHOWS_FORMAT = "%s; %s; %d; %s; %d; %s";
     private static final String SHOWS_CAST_FORMAT = "; %s";
     private static final String ARTIST_FORMAT = "%s bio was %s.\n";
+    private static final String CREDITS_FORMAT = "%s; %d; %s [%s]\n";
     private static final String REVIEW_ADDED = "Review for %s was registered [%d reviews].\n";
-    private static final String REVIEWS_HEADER = "Reviews of %s [%.2f]:\n";
+    private static final String REVIEWS_HEADER = "Reviews of %s [%.1f]:\n";
     private static final String REVIEWS_FORMAT = "Review of %s (%s): %s [%s]\n";
     private static final String GENRES_NO_SHOW_FOUND = "No show was found within the criteria.";
-    private static final String GENRES_FORMAT = "%s %s by %s released on %d [%.2f]\n";
+    private static final String GENRES_FORMAT = "%s %s by %s released on %d [%.1f]\n";
     private static final String GENRES_HEADER = "Search by genre:";
 
     public static void main(String[] args){
@@ -68,6 +69,7 @@ public class Main {
                 case SERIES -> show(in, system, "Series");
                 case SHOWS -> shows(system);
                 case ARTIST -> artist(in, system);
+                case CREDITS -> credits(in, system);
                 case REVIEW -> review(in, system);
                 case REVIEWS -> reviews(in, system);
                 case GENRE -> genre(in, system);
@@ -187,16 +189,6 @@ public class Main {
         }
     }
 
-    private static void artist(Scanner in, CineReviews system){
-        try{
-            String artistName = in.nextLine();
-            String actionTaken = (system.addArtistInfo(artistName, in.nextLine(), in.nextLine()) == 0)? "updated" : "created";
-            System.out.printf(ARTIST_FORMAT, artistName, actionTaken);
-        }catch (RuntimeException c){
-            System.out.println(c.getMessage());
-        }
-    }
-
     private static void printShow(Map.Entry<String, Show> showEntry){
         Show s = showEntry.getValue();
         System.out.printf(SHOWS_FORMAT, showEntry.getKey(), s.getCreator().getName(), s.getSeasonsOrDuration(),
@@ -211,6 +203,45 @@ public class Main {
 
         System.out.println();
     }
+
+    private static void artist(Scanner in, CineReviews system){
+        try{
+            String artistName = in.nextLine().trim();
+            String actionTaken = (system.addArtistInfo(artistName, in.nextLine(), in.nextLine()) == 0)? "updated" : "created";
+            System.out.printf(ARTIST_FORMAT, artistName, actionTaken);
+        }catch (CineReviewsException c){
+            System.out.println(c.getMessage());
+        }
+    }
+
+    private static void credits(Scanner in, CineReviews system){
+        try{
+            String artistName = in.nextLine().trim();
+            Artist a = system.getArtist(artistName);
+
+            if(a.getBirthday() != null)
+               System.out.println(a.getBirthday());
+            if(a.getBirthplace() != null)
+              System.out.println(a.getBirthplace());
+
+            printArtistShows(a);
+        } catch(CineReviewsException c){
+            System.out.println(c.getMessage());
+        }
+    }
+
+    private static void printArtistShows(Artist a){
+        Iterator<Map.Entry<Show, String>> it = a.getWorkedShows();
+
+        while(it.hasNext()){
+            Map.Entry<Show, String> m = it.next();
+            Show s = m.getKey();
+
+            String showType = (s instanceof MovieClass)? "movie" : "series";
+            System.out.printf(CREDITS_FORMAT, s.getTitle(), s.getYear(), m.getValue(), showType);
+        }
+    }
+
 
     private static void review(Scanner in, CineReviews system){
         try{

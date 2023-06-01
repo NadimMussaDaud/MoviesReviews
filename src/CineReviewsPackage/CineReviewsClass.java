@@ -21,6 +21,7 @@ public class CineReviewsClass implements CineReviews {
     private static final String REVIEW_EXISTS = "%s has already reviewed %s!";
     private static final String SHOW_HAS_NO_REVIEWS = "Show %s has no reviews.";
     private static final String ARTIST_BIO_EXISTS = "Bio of %s is already available!";
+    private static final String ARTIST_NOT_FOUND = "No information about %s!";
 
     private final SortedMap<String, Show> shows;
     private final SortedMap<String, Person> persons;
@@ -51,7 +52,6 @@ public class CineReviewsClass implements CineReviews {
                 persons.put(name, new CriticClass(name));
             }
         }
-
     }
 
     @Override
@@ -103,27 +103,36 @@ public class CineReviewsClass implements CineReviews {
 
     private int handleArtists(List<String> cast, String director) {
         int count = 0;
-        count += addArtistInfo(director, null, null);
+        try {
+            count += addArtistInfo(director, null, null);
+        } catch (CineReviewsException ignored){}
+            //If artist is already defined, ignore it.
         for (String c : cast) {
-            count += addArtistInfo(c, null, null);
+            try {
+                count += addArtistInfo(c, null, null);
+            }catch (CineReviewsException ignored){}
         }
         return count;
     }
 
-    //RuntimeException is needed so that the method handleArtists does not have to handle it.
-    public int addArtistInfo(String name,String birthday, String birthplace) throws RuntimeException{
+    public int addArtistInfo(String name,String birthday, String birthplace) throws CineReviewsException{
         if (!artists.containsKey(name)) {
-            artists.put(name, new Artist(name, birthplace, birthday));
+            artists.put(name, new Artist(name, birthday, birthplace));
             return 1;
         } else {
             Artist a = artists.get(name);
 
             if (a.getBirthplace() != null || a.getBirthday() != null)
-                throw new RuntimeException(String.format(ARTIST_BIO_EXISTS, name));
+                throw new CineReviewsException(String.format(ARTIST_BIO_EXISTS, name));
 
             a.addInfo(birthplace, birthday);
             return 0;
         }
+    }
+
+    public Artist getArtist(String name) throws CineReviewsException{
+        if(!artists.containsKey(name)) throw new CineReviewsException(String.format(ARTIST_NOT_FOUND, name));
+        return artists.get(name);
     }
 
     public Iterator<Map.Entry<String, Show>> getShows() throws CineReviewsException {
