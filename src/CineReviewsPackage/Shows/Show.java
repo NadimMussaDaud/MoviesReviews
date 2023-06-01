@@ -5,19 +5,19 @@ import CineReviewsPackage.Persons.Person;
 import CineReviewsPackage.Shows.Reviews.Review;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public interface Show {
     String getCertification();
 
     int getYear();
 
-    Person getCreator();
+    Artist getCreator();
 
     Iterator<String> getGenres();
 
-    Iterator<Map.Entry<String, Person>> getShowsPersons();
+    Iterator<Artist> getShowsPersons();
 
     int getSeasonsOrDuration();
 
@@ -25,9 +25,9 @@ public interface Show {
 
     Iterator<Review> getReviews() throws ShowException;
 
-    int getAverageReviews();
+    double getAverageReviews();
 
-    public boolean containsAllGenres(Set<String> toCheck);
+    public boolean containsAllGenres(List<String> toCheck);
 
     public String getTitle();
 }

@@ -2,14 +2,9 @@ package CineReviewsPackage;
 
 import CineReviewsPackage.Exceptions.*;
 import CineReviewsPackage.Persons.*;
-import CineReviewsPackage.Shows.MovieClass;
+import CineReviewsPackage.Shows.*;
 import CineReviewsPackage.Shows.Reviews.Review;
-import CineReviewsPackage.Shows.Reviews.ReviewClass;
-import CineReviewsPackage.Shows.SeriesClass;
-import CineReviewsPackage.Shows.Show;
-import CineReviewsPackage.Shows.ShowComparator;
 
-import java.security.PrivateKey;
 import java.util.*;
 
 public class CineReviewsClass implements CineReviews {
@@ -25,13 +20,16 @@ public class CineReviewsClass implements CineReviews {
     private static final String SHOW_NOT_FOUND = "Show %s does not exist!";
     private static final String REVIEW_EXISTS = "%s has already reviewed %s!";
     private static final String SHOW_HAS_NO_REVIEWS = "Show %s has no reviews.";
+    private static final String ARTIST_BIO_EXISTS = "Bio of %s is already available!";
 
     private final SortedMap<String, Show> shows;
     private final SortedMap<String, Person> persons;
+    private final SortedMap<String, Artist> artists;
 
     public CineReviewsClass() {
         shows = new TreeMap<>();
         persons = new TreeMap<>();
+        artists = new TreeMap<>();
     }
 
     @Override
@@ -79,20 +77,24 @@ public class CineReviewsClass implements CineReviews {
         int newArtistCount = handleArtists(cast, director);
 
         //tirar de users todos os artistas recém criados e guardar num array de users
-        SortedMap<String, Person> castPersons = new TreeMap<>();
+        List<Artist> castArtists = new LinkedList<>();
         for (String a : cast)
-            castPersons.put(a, persons.get(a));
-        Person directorPerson = persons.get(director);
+            castArtists.add(artists.get(a));
+        Artist directorArtist = artists.get(director);
 
         Show s = null;
-        if (type.equals("movie"))
-            s = new MovieClass(directorPerson, title, durationOrSeasons, certification, year, genres, castPersons);
-        if (type.equals("series"))
-            s = new SeriesClass(directorPerson, title, durationOrSeasons, certification, year, genres, castPersons);
-
+        if (type.equals("Movie")) {
+            s = new MovieClass(directorArtist, title, durationOrSeasons, certification, year, genres, castArtists);
+            directorArtist.addShow(s, "director");
+        }
+        if (type.equals("Series")){
+            s = new SeriesClass(directorArtist, title, durationOrSeasons, certification, year, genres, castArtists);
+            directorArtist.addShow(s, "creator");
+        }
         shows.put(title, s);
-        for (Person p : castPersons.values())
-            p.addMedia(s);
+        for (Artist a : castArtists)
+            a.addShow(s, "actor");
+
 
         persons.get(adminName).addMedia(s);
 
@@ -108,20 +110,18 @@ public class CineReviewsClass implements CineReviews {
         return count;
     }
 
-    @SuppressWarnings("SameReturnValue")
-    private int addArtist(String name, String birthplace, String birthday) throws CineReviewsException {
-        if (!persons.containsKey(name)) {
-            persons.put(name, new ArtistClass(name, birthplace, birthday));
+    //RuntimeException is needed so that the method handleArtists does not have to handle it.
+    public int addArtistInfo(String name,String birthday, String birthplace) throws RuntimeException{
+        if (!artists.containsKey(name)) {
+            artists.put(name, new Artist(name, birthplace, birthday));
             return 1;
-        } else throw new CineReviewsException("");
-    }
+        } else {
+            Artist a = artists.get(name);
 
-    public int addArtistInfo(String name, String birthplace, String birthday) {
-        try {
-            return addArtist(name, birthplace, birthday);
-        } catch (CineReviewsException e) {
-            if ((persons.get(name) instanceof ArtistClass) && birthplace != null && birthday != null)
-                ((ArtistClass) persons.get(name)).addInfo(birthplace, birthday);
+            if (a.getBirthplace() != null || a.getBirthday() != null)
+                throw new RuntimeException(String.format(ARTIST_BIO_EXISTS, name));
+
+            a.addInfo(birthplace, birthday);
             return 0;
         }
     }
@@ -157,11 +157,11 @@ public class CineReviewsClass implements CineReviews {
         }
     }
 
-    public int getAverageRating(String showName) {
+    public double getAverageRating(String showName) {
         return shows.get(showName).getAverageReviews();
     }
 
-    public Iterator<Show> getShowsFromGenres(Set<String> genres) {
+    public Iterator<Show> getShowsFromGenres(List<String> genres) {
         SortedSet<Show> toReturn = new TreeSet<>(new ShowComparator());
 
         for (Show s : shows.values()) {

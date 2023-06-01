@@ -9,29 +9,24 @@ import CineReviewsPackage.Shows.Reviews.ReviewComparator;
 
 import java.util.*;
 
-/**
- * This class is an abstract class that implements the CineReviewsPackage.Shows.Show interface.
- * It is used to create a Movie or a Series. We assume that a Director and a Creator are the same thing.
- */
-
 abstract class ShowsAbstract implements Show {
-    protected final String title; //name is stored only to facilitate de Comparator.
+    protected final String title; //name is stored only to facilitate the Comparator.
     protected final String certification;
     protected final int year;
-    protected final Person creator;
-    protected final Set<String> genres;
-    protected final SortedMap<String, Person> persons;
+    protected final Artist creator;
+    protected List<String> genres;
+    protected final List<Artist> cast;
     protected final SortedSet<Review> reviews;
 
 
-    public ShowsAbstract(Person creator, String title, String certification, int year, List<String> genres, SortedMap<String, Person> cast) {
+    public ShowsAbstract(Artist creator, String title, String certification, int year, List<String> genres, List<Artist> cast) {
         this.title = title;
         this.certification = certification;
         this.year = year;
         this.creator = creator;
-        this.genres = new HashSet<>(genres);
-        persons = new TreeMap<>();
-        persons.putAll(cast);
+        this.genres = genres;  //Insertion order must be preserved.
+        this.cast = new LinkedList<>(); //Insertion order must be preserved.
+        this.cast.addAll(cast);
         reviews = new TreeSet<>(new ReviewComparator());
     }
 
@@ -43,7 +38,7 @@ abstract class ShowsAbstract implements Show {
         return year;
     }
 
-    public Person getCreator(){
+    public Artist getCreator(){
         return creator;
     }
 
@@ -51,8 +46,8 @@ abstract class ShowsAbstract implements Show {
         return genres.iterator();
     }
 
-    public Iterator<Map.Entry<String, Person>> getShowsPersons() {
-        return persons.entrySet().iterator();
+    public Iterator<Artist> getShowsPersons() {
+        return cast.iterator();
     }
 
     public abstract int getSeasonsOrDuration();
@@ -70,8 +65,8 @@ abstract class ShowsAbstract implements Show {
         return reviews.iterator();
     }
 
-    public int getAverageReviews(){
-        int count = 0;
+    public double getAverageReviews(){
+        double count = 0;
 
         for(Review r : reviews)
             count += (r.getReviewer() instanceof CriticClass)? 5*r.getRating().getNumber() : r.getRating().getNumber();
@@ -79,8 +74,8 @@ abstract class ShowsAbstract implements Show {
         return count/reviews.size();
     }
 
-    public boolean containsAllGenres(Set<String> toCheck){
-        return genres.containsAll(toCheck);
+    public boolean containsAllGenres(List<String> toCheck){
+        return new HashSet<>(genres).containsAll(toCheck);
     }
 
     public String getTitle() {

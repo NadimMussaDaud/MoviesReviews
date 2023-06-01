@@ -7,18 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="review, reviews commands implemented.&#10;&#10;-Review package created and fleshed out.">
-      <change afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowComparator.java" afterDir="false" />
+    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="genre command implemented.&#10;&#10;-show now stores its own title&#10;-added show comparator">
+      <change afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Artist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/ArtistClass.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/PersonAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/PersonAbstract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/MovieClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/MovieClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewComparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/SeriesClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/SeriesClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowComparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -35,20 +35,40 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2QbojuoSzU3F5kswQVPGlRZriD3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Gamer\IdeaProjects\Projecto2\src" />
       <recent name="C:\Users\Gamer\IdeaProjects\Projecto2\Tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Projecto2" />
@@ -75,14 +95,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.test04" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projecto2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="test04" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Tests" />
+        <item itemvalue="JUnit.Tests.test04" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Tests.test02" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Severe merge">
       <created>1685556567275</created>
@@ -119,15 +151,46 @@
       <option name="project" value="LOCAL" />
       <updated>1685574653003</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="genre command implemented.&#10;&#10;-show now stores its own title&#10;-added show comparator">
+      <created>1685586656336</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685586656336</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="genre command implemented.&#10;&#10;-show now stores its own title&#10;-added show comparator" />
+      <created>1685631786610</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685631786610</updated>
+      <workItem from="1685631788053" duration="1716000" />
+      <workItem from="1685635109396" duration="5302000" />
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -139,6 +202,22 @@
     <MESSAGE value="AdministratorException, NotAdministratorException, NoUserException removed&#10;&#10;Exceptions generalized into UserException and CineReviewsException." />
     <MESSAGE value="series, shows implemented" />
     <MESSAGE value="review, reviews commands implemented.&#10;&#10;-Review package created and fleshed out." />
-    <option name="LAST_COMMIT_MESSAGE" value="review, reviews commands implemented.&#10;&#10;-Review package created and fleshed out." />
+    <MESSAGE value="genre command implemented.&#10;&#10;-show now stores its own title&#10;-added show comparator" />
+    <option name="LAST_COMMIT_MESSAGE" value="genre command implemented.&#10;&#10;-show now stores its own title&#10;-added show comparator" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java</url>
+          <line>103</line>
+          <properties class="CineReviewsPackage.CineReviewsClass" method="handleArtists">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

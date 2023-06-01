@@ -25,13 +25,15 @@ public interface CineReviews {
     int addShow(String title, String director, int duration, String certification, int year,
                 List<String> genres, List<String> cast, String type, String adminName) throws CineReviewsException;
 
+    int addArtistInfo(String name, String birthplace, String birthday) throws RuntimeException;
+
     Iterator<Map.Entry<String, Show>> getShows() throws CineReviewsException;
 
     int addReview(String userName, String title, String review, String classification) throws CineReviewsException;
 
     Iterator<Review> getReviews(String showName) throws CineReviewsException;
 
-    int getAverageRating(String showName);
+    double getAverageRating(String showName);
 
-    public Iterator<Show> getShowsFromGenres(Set<String> genres);
+    Iterator<Show> getShowsFromGenres(List<String> genres);
 }

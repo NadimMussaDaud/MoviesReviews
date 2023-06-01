@@ -35,9 +35,9 @@ Nota1: *Diagrama de Classes*
 
         CineReviewsPackage.Persons.PersonAbstract(implements PersonInterface)
         
-    CineReviewsPackage.Persons.AdminClass  CineReviewsPackage.Persons.CriticClass  CineReviewsPackage.Persons.AudienceClass  CineReviewsPackage.Persons.ArtistClass (Todas extends CineReviewsPackage.Persons.PersonAbstract) 
+    CineReviewsPackage.Persons.AdminClass  CineReviewsPackage.Persons.CriticClass  CineReviewsPackage.Persons.AudienceClass  CineReviewsPackage.Shows.Artist (Todas extends CineReviewsPackage.Persons.PersonAbstract) 
  
-Nota2: CineReviewsPackage.Shows contém HashMap<CineReviewsPackage.Persons.ArtistClass artist, String role> 
+Nota2: CineReviewsPackage.Shows contém HashMap<CineReviewsPackage.Shows.Artist artist, String role> 
 
 
 Nota3: Diretor e Criador são considerados a mesma coisa (UTILIZAR director PARA REFERIR UM DELES)

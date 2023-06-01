@@ -1,18 +1,14 @@
-/**
- * Autores: Lucas e Nadim Mussá Daud
- */
-
 import CineReviewsPackage.CineReviews;
 import CineReviewsPackage.CineReviewsClass;
 import CineReviewsPackage.Persons.AdminClass;
 import CineReviewsPackage.Persons.CriticClass;
 import CineReviewsPackage.Persons.Person;
 import CineReviewsPackage.Exceptions.CineReviewsException;
+import CineReviewsPackage.Shows.Artist;
 import CineReviewsPackage.Shows.MovieClass;
 import CineReviewsPackage.Shows.Reviews.Review;
 import CineReviewsPackage.Shows.Show;
 
-import javax.swing.text.Style;
 import java.util.*;
 
 public class Main {
@@ -28,11 +24,12 @@ public class Main {
     private static final String SHOWS_HEADER = "All shows:";
     private static final String SHOWS_FORMAT = "%s; %s; %d; %s; %d; %s";
     private static final String SHOWS_CAST_FORMAT = "; %s";
+    private static final String ARTIST_FORMAT = "%s bio was %s.\n";
     private static final String REVIEW_ADDED = "Review for %s was registered [%d reviews].\n";
-    private static final String REVIEWS_HEADER = "Reviews of %s [%d]:\n";
+    private static final String REVIEWS_HEADER = "Reviews of %s [%.2f]:\n";
     private static final String REVIEWS_FORMAT = "Review of %s (%s): %s [%s]\n";
     private static final String GENRES_NO_SHOW_FOUND = "No show was found within the criteria.";
-    private static final String GENRES_FORMAT = "%s %s by %s released on %d [%d]\n";
+    private static final String GENRES_FORMAT = "%s %s by %s released on %d [%.2f]\n";
     private static final String GENRES_HEADER = "Search by genre:";
 
     public static void main(String[] args){
@@ -70,6 +67,7 @@ public class Main {
                 case MOVIE -> show(in, system, "Movie");
                 case SERIES -> show(in, system, "Series");
                 case SHOWS -> shows(system);
+                case ARTIST -> artist(in, system);
                 case REVIEW -> review(in, system);
                 case REVIEWS -> reviews(in, system);
                 case GENRE -> genre(in, system);
@@ -189,14 +187,27 @@ public class Main {
         }
     }
 
+    private static void artist(Scanner in, CineReviews system){
+        try{
+            String artistName = in.nextLine();
+            String actionTaken = (system.addArtistInfo(artistName, in.nextLine(), in.nextLine()) == 0)? "updated" : "created";
+            System.out.printf(ARTIST_FORMAT, artistName, actionTaken);
+        }catch (RuntimeException c){
+            System.out.println(c.getMessage());
+        }
+    }
+
     private static void printShow(Map.Entry<String, Show> showEntry){
         Show s = showEntry.getValue();
-        System.out.printf(SHOWS_FORMAT, showEntry.getKey(), s.getCreator(), s.getSeasonsOrDuration(),
+        System.out.printf(SHOWS_FORMAT, showEntry.getKey(), s.getCreator().getName(), s.getSeasonsOrDuration(),
                 s.getCertification(), s.getYear(), s.getGenres().next());
 
-        Iterator<Map.Entry<String, Person>> it = s.getShowsPersons();
-        while(it.hasNext())
-            System.out.printf(SHOWS_CAST_FORMAT, it.next().getKey());
+        Iterator<Artist> it = s.getShowsPersons();
+        int i = 0;
+        while(it.hasNext() && i < 3) {
+            System.out.printf(SHOWS_CAST_FORMAT, it.next().getName());
+            i++;
+        }
 
         System.out.println();
     }
@@ -231,7 +242,7 @@ public class Main {
 
     private static void genre(Scanner in, CineReviews system){
         in.nextLine();
-        Iterator<Show> matchesIt = system.getShowsFromGenres(new HashSet<>(readStringArray(in)));
+        Iterator<Show> matchesIt = system.getShowsFromGenres(new ArrayList<>(readStringArray(in)));
 
         if(!matchesIt.hasNext())
             System.out.println(GENRES_NO_SHOW_FOUND);
