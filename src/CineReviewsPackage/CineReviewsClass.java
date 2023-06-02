@@ -125,7 +125,7 @@ public class CineReviewsClass implements CineReviews {
 
     public int addArtistInfo(String name, String birthday, String birthplace) throws CineReviewsException {
         if (!artists.containsKey(name)) {
-            artists.put(name, new Artist(name, birthday, birthplace));
+            artists.put(name, new ArtistClass(name, birthday, birthplace));
             return 1;
         } else {
             Artist a = artists.get(name);

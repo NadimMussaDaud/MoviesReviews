@@ -7,13 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="tests 8 and 9 operational.">
+    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="tests 10 operational, avoiders and friends command implemented but broken">
+      <change afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ArtistClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/CineReviewsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/CineReviewsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/ShowException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/ShowException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/UserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/UserException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/AdminClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/AdminClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +33,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -60,6 +68,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Gamer\IdeaProjects\Projecto2\src" />
       <recent name="C:\Users\Gamer\IdeaProjects\Projecto2\Tests" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="CineReviewsPackage.Shows" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.Tests.test11">
@@ -174,7 +185,7 @@
       <updated>1685631786610</updated>
       <workItem from="1685631788053" duration="1716000" />
       <workItem from="1685635109396" duration="23004000" />
-      <workItem from="1685706445517" duration="15211000" />
+      <workItem from="1685706445517" duration="18492000" />
     </task>
     <task id="LOCAL-00007" summary="tests 4 and 5 functional.">
       <created>1685645367708</created>
@@ -197,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685658237173</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="tests 10 operational, avoiders and friends command implemented but broken">
+      <created>1685729942138</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685729942138</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +254,8 @@
     <MESSAGE value="tests 4 and 5 functional." />
     <MESSAGE value="tests 6 and 7 functional." />
     <MESSAGE value="tests 8 and 9 operational." />
-    <option name="LAST_COMMIT_MESSAGE" value="tests 8 and 9 operational." />
+    <MESSAGE value="tests 10 operational, avoiders and friends command implemented but broken" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests 10 operational, avoiders and friends command implemented but broken" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

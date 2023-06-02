@@ -12,11 +12,6 @@ public class AdminClass extends PersonAbstract<Show>{
         this.password = password;
     }
 
-    public int numberMovies(){
-        return super.media.size();
-    }
-
-
     public void addMedia(Object o){
         super.media.add((Show)o);
     }

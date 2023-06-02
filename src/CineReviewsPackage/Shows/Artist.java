@@ -1,56 +1,64 @@
 package CineReviewsPackage.Shows;
 
-import CineReviewsPackage.Shows.Show;
-import CineReviewsPackage.Shows.ShowComparator;
-
 import java.util.Iterator;
 import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
-public class Artist{
-    private final String name;
-    private final SortedMap<Show, String> workedShows; //this map's value indicates its role.
-    private String birthday,birthplace;
-    public Artist(String name, String birthday, String birthplace) {
-        this.name = name;
-        workedShows = new TreeMap<>(new ShowComparator());
-        this.birthday = birthday;
-        this.birthplace = birthplace;
-    }
+/**
+ * This interface represents an Artist in the CineReviews project.
+ * It provides methods for adding information about the artist,
+ * adding shows the artist has worked on, getting information about
+ * the artist and checking if the artist has worked with another artist.
+ *
+ * @author Lucas Andrade, 64583
+ * @author Nadim Daud, 63529
+ */
+public interface Artist {
+    /**
+     * Adds information about the artist's birthplace and birthday.
+     * @param birthplace The birthplace of the artist.
+     * @param birthday The birthday of the artist.
+     */
+    void addInfo(String birthplace, String birthday);
 
+    /**
+     * Adds a show that the artist has worked on and their role in it.
+     * @param s The show that the artist has worked on.
+     * @param role The role of the artist in the show.
+     */
+    void addShow(Show s, String role);
 
-    public void addInfo(String birthplace, String birthday) {
-        this.birthday = birthday;
-        this.birthplace = birthplace;
-    }
+    /**
+     * Gets the name of the artist.
+     * @return The name of the artist.
+     */
+    String getName();
 
-    public void addShow(Show s, String role){
-        workedShows.put(s, role);
-    }
+    /**
+     * Gets the birthday of the artist.
+     * @return The birthday of the artist.
+     */
+    String getBirthday();
 
-    public String getName() {
-        return name;
-    }
+    /**
+     * Gets the birthplace of the artist.
+     * @return The birthplace of the artist.
+     */
+    String getBirthplace();
 
-    public String getBirthday() {
-        return birthday;
-    }
+    /**
+     * Gets an iterator over the shows that the artist has worked on
+     * and their roles in them.
+     * @return An iterator over entries where each entry contains a show
+     * and the role of the artist in it.
+     */
+    Iterator<Map.Entry<Show, String>> getWorkedShows();
 
-    public String getBirthplace() {
-        return birthplace;
-    }
-
-    public Iterator<Map.Entry<Show, String>> getWorkedShows(){
-        return workedShows.entrySet().iterator();
-    }
-
-    public boolean hasWorkedWith(String name){
-        for(Show s : workedShows.keySet()){
-            if(s.hasArtist(name))
-                return true;
-        }
-        return false;
-    }
+    /**
+     * Checks if this Artist has worked with another Artist with a given name
+     *
+     * @param name name to check
+     *
+     *@return true if this Artist has worked with another Artist with a given name
+     */
+    boolean hasWorkedWith(String name);
 }

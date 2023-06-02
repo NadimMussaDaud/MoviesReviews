@@ -12,6 +12,13 @@ import CineReviewsPackage.Shows.Show;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * This class contains the main method for running the CineReviews project.
+ * It provides methods for handling user input and executing commands.
+ *
+ * @author Lucas Andrade, 64583
+ * @author Nadim Daud, 63529
+ */
 public class Main {
 
     //MESSAGES
@@ -55,7 +62,7 @@ public class Main {
     }
 
     /**
-     * Main command, reads command input and calls the appropriate method.
+     * Handles user input and executes commands.
      */
     private static void commands() {
         Scanner in = new Scanner(System.in);
@@ -107,6 +114,11 @@ public class Main {
         System.out.println(EXIT_MESSAGE);
     }
 
+    /**
+     * Registers a new user in the system.
+     * @param in The scanner to read user input from.
+     * @param system The CineReviews system to register the user in.
+     */
     private static void register(Scanner in, CineReviews system) {
         String type = in.next().toLowerCase();
         String name = in.next();
@@ -128,7 +140,8 @@ public class Main {
     }
 
     /**
-     * Prints the users
+     * Prints the users registered in the system.
+     * @param system The CineReviews system to get users from.
      */
     private static void users(CineReviews system) {
         try {
@@ -146,9 +159,11 @@ public class Main {
             System.out.println(c.getMessage());
         }
     }
-
     /**
-     * Registers a new movie
+     * Registers a new show in the system.
+     * @param in The scanner to read user input from.
+     * @param system The CineReviews system to add the show to.
+     * @param type The type of show to add ("Movie" or "Series").
      */
     private static void show(Scanner in, CineReviews system, String type){
         String admin = in.next();
@@ -174,6 +189,11 @@ public class Main {
         }
     }
 
+    /**
+     * Reads a list of strings from user input.
+     * @param in The scanner to read user input from.
+     * @return A list of strings read from user input.
+     */
     private static List<String> readStringArray(Scanner in) {
         int amountToRead = in.nextInt();
         in.nextLine();
@@ -184,6 +204,10 @@ public class Main {
         return array;
     }
 
+    /**
+     * Prints the shows registered in the system.
+     * @param system The CineReviews system to get shows from.
+     */
     private static void shows(CineReviews system){
         try {
             Iterator<Map.Entry<String, Show>> it = system.getShows();
@@ -196,6 +220,10 @@ public class Main {
         }
     }
 
+    /**
+     * Prints information about a show.
+     * @param showEntry An entry containing a show's title and its corresponding Show object.
+     */
     private static void printShow(Map.Entry<String, Show> showEntry){
         Show s = showEntry.getValue();
         System.out.printf(SHOWS_FORMAT, showEntry.getKey(), s.getCreator().getName(), s.getSeasonsOrDuration(),
@@ -211,6 +239,11 @@ public class Main {
         System.out.println();
     }
 
+    /**
+     * Adds information about an artist in the system.
+     * @param in The scanner to read user input from.
+     * @param system The CineReviews system to add artist information to.
+     */
     private static void artist(Scanner in, CineReviews system){
         try{
             String artistName = in.nextLine().trim();
@@ -221,6 +254,11 @@ public class Main {
         }
     }
 
+    /**
+     * Prints information about an artist's shows.
+     * @param in The scanner to read user input from.
+     * @param system The CineReviews system to get artist information from.
+     */
     private static void credits(Scanner in, CineReviews system){
         try{
             String artistName = in.nextLine().trim();
@@ -237,6 +275,10 @@ public class Main {
         }
     }
 
+    /**
+     * Prints information about an artist's shows.
+     * @param a The artist to print shows for.
+     */
     private static void printArtistShows(Artist a){
         Iterator<Map.Entry<Show, String>> it = a.getWorkedShows();
 
@@ -249,7 +291,11 @@ public class Main {
         }
     }
 
-
+    /**
+     * Adds a review for a show by a user.
+     * @param in The scanner to read user input from.
+     * @param system The CineReviews system to add the review to.
+     */
     private static void review(Scanner in, CineReviews system){
         try{
             String userName = in.next();
@@ -261,6 +307,11 @@ public class Main {
         }
     }
 
+    /**
+     * Prints reviews for a show with a given title.
+     * @param in The scanner to read user input from.
+     * @param system The CineReviews system to get reviews from.
+     */
     private static void reviews(Scanner in, CineReviews system){
         String show = in.nextLine().trim();
 
@@ -278,7 +329,11 @@ public class Main {
         }
     }
 
-
+    /**
+     * Prints shows that contain all genres in a given list.
+     * @param in The scanner to read user input from.
+     * @param system The CineReviews system to get shows from.
+     */
     private static void genre(Scanner in, CineReviews system){
         try {
             in.nextLine();
@@ -290,6 +345,11 @@ public class Main {
         }
     }
 
+    /**
+     * Prints shows that were released in a given year.
+     * @param in The scanner to read user input from.
+     * @param system The CineReviews system to get shows from.
+     */
     private static void released(Scanner in, CineReviews system){
         try {
             in.nextLine();
@@ -303,6 +363,11 @@ public class Main {
         }
     }
 
+    /**
+     * Prints shows that match a certain condition.
+     * @param it An iterator over the shows that match the condition.
+     * @param header The header to print before printing the shows.
+     */
     private static void printShowsFromCondition(Iterator<Show> it, String header){
         if (!it.hasNext())
             System.out.println(CONDITION_NO_SHOW_FOUND);
@@ -316,6 +381,10 @@ public class Main {
         }
     }
 
+    /**
+     * Prints sets of artists that have never collaborated with each other.
+     * @param system The CineReviews system to get artist sets from.
+     */
     private static void avoiders(CineReviews system){
         try{
             AtomicInteger size = new AtomicInteger();
@@ -334,6 +403,10 @@ public class Main {
         }
     }
 
+    /**
+     * Prints names of the most frequent collaborators.
+     * @param system The CineReviews system to get collaborator names from.
+     */
     private static void friends(CineReviews system){
         try{
             AtomicInteger maxCollaborations = new AtomicInteger();
