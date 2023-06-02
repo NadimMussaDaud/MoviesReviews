@@ -1,7 +1,6 @@
 package CineReviewsPackage;
 
 import CineReviewsPackage.Exceptions.CineReviewsException;
-import CineReviewsPackage.Exceptions.ShowException;
 import CineReviewsPackage.Exceptions.UserException;
 import CineReviewsPackage.Persons.Person;
 import CineReviewsPackage.Shows.Artist;
@@ -11,7 +10,8 @@ import CineReviewsPackage.Shows.Show;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.SortedSet;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public interface CineReviews {
     boolean hasType(String type);
@@ -38,5 +38,10 @@ public interface CineReviews {
 
     double getAverageRating(String showName);
 
-    Iterator<Show> getShowsFromGenres(List<String> genres);
+    Iterator<Show> getShowsFromGenres(List<String> genres) throws CineReviewsException;
+
+    Iterator<Show> getShowsFromYear(int year) throws CineReviewsException;
+    Iterator<SortedSet<Artist>> getNoCollaborationSets(AtomicInteger size) throws CineReviewsException;
+
+    Iterator<String> getMostFrequentCollaborators(AtomicInteger maxCollab) throws CineReviewsException;
 }

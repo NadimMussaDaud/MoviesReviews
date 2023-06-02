@@ -10,6 +10,7 @@ import CineReviewsPackage.Shows.Reviews.Review;
 import CineReviewsPackage.Shows.Show;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
@@ -29,9 +30,12 @@ public class Main {
     private static final String REVIEW_ADDED = "Review for %s was registered [%d reviews].\n";
     private static final String REVIEWS_HEADER = "Reviews of %s [%.1f]:\n";
     private static final String REVIEWS_FORMAT = "Review of %s (%s): %s [%s]\n";
-    private static final String GENRES_NO_SHOW_FOUND = "No show was found within the criteria.";
-    private static final String GENRES_FORMAT = "%s %s by %s released on %d [%.1f]\n";
+    private static final String CONDITION_NO_SHOW_FOUND = "No show was found within the criteria.";
+    private static final String CONDITION_FORMAT = "%s %s by %s released on %d [%.1f]\n";
     private static final String GENRES_HEADER = "Search by genre:";
+    private static final String RELEASED_HEADER = "Shows released on %d:";
+    private static final String FRIENDS_HEADER = "These artists have worked on %d projects together:\n";
+    private static final String AVOIDERS_HEADER = "These %s artists never worked together:\n";
 
     public static void main(String[] args){
         commands();
@@ -73,6 +77,9 @@ public class Main {
                 case REVIEW -> review(in, system);
                 case REVIEWS -> reviews(in, system);
                 case GENRE -> genre(in, system);
+                case RELEASED -> released(in, system);
+                case AVOIDERS -> avoiders(system);
+                case FRIENDS -> friends(system);
 
             }
         } while (command != Commands.EXIT);
@@ -271,21 +278,76 @@ public class Main {
         }
     }
 
+
     private static void genre(Scanner in, CineReviews system){
-        in.nextLine();
-        Iterator<Show> matchesIt = system.getShowsFromGenres(new ArrayList<>(readStringArray(in)));
+        try {
+            in.nextLine();
+            Iterator<Show> matchesIt = system.getShowsFromGenres(new ArrayList<>(readStringArray(in)));
 
-        if(!matchesIt.hasNext())
-            System.out.println(GENRES_NO_SHOW_FOUND);
-        else
-            System.out.println(GENRES_HEADER);
-
-        while(matchesIt.hasNext()){
-            Show s = matchesIt.next();
-            String showType = (s instanceof MovieClass)? "Movie" : "Series";
-            System.out.printf(GENRES_FORMAT, showType, s.getTitle(), s.getCreator().getName(), s.getYear(), s.getAverageReviews());
+            printShowsFromCondition(matchesIt, GENRES_HEADER);
+        } catch (CineReviewsException c){
+            System.out.println(c.getMessage());
         }
     }
+
+    private static void released(Scanner in, CineReviews system){
+        try {
+            in.nextLine();
+            int year = in.nextInt();
+            Iterator<Show> it = system.getShowsFromYear(year);
+            in.nextLine();
+
+            printShowsFromCondition(it, String.format(RELEASED_HEADER, year));
+        } catch (CineReviewsException c){
+            System.out.println(c.getMessage());
+        }
+    }
+
+    private static void printShowsFromCondition(Iterator<Show> it, String header){
+        if (!it.hasNext())
+            System.out.println(CONDITION_NO_SHOW_FOUND);
+        else
+            System.out.println(header);
+
+        while (it.hasNext()) {
+            Show s = it.next();
+            String showType = (s instanceof MovieClass) ? "Movie" : "Series";
+            System.out.printf(CONDITION_FORMAT, showType, s.getTitle(), s.getCreator().getName(), s.getYear(), s.getAverageReviews());
+        }
+    }
+
+    private static void avoiders(CineReviews system){
+        try{
+            AtomicInteger size = new AtomicInteger();
+            Iterator<SortedSet<Artist>> setIt = system.getNoCollaborationSets(size);
+
+            System.out.printf(AVOIDERS_HEADER, size);
+            while (setIt.hasNext()){
+                Iterator<Artist> it = setIt.next().iterator();
+
+                while (it.hasNext()){
+                    System.out.print(it.next().getName() + ((it.hasNext())? ", " : "\n"));
+                }
+            }
+        } catch (CineReviewsException c){
+            System.out.println(c.getMessage());
+        }
+    }
+
+    private static void friends(CineReviews system){
+        try{
+            AtomicInteger maxCollaborations = new AtomicInteger();
+            Iterator<String> it = system.getMostFrequentCollaborators(maxCollaborations);
+
+            System.out.printf(FRIENDS_HEADER, maxCollaborations.get());
+            while(it.hasNext()){
+                System.out.println(it.next());
+            }
+        } catch (CineReviewsException c){
+            System.out.println(c.getMessage());
+        }
+    }
+
 }
 
 

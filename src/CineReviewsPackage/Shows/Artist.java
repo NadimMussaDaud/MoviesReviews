@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Artist{
     private final String name;
@@ -43,5 +44,13 @@ public class Artist{
 
     public Iterator<Map.Entry<Show, String>> getWorkedShows(){
         return workedShows.entrySet().iterator();
+    }
+
+    public boolean hasWorkedWith(String name){
+        for(Show s : workedShows.keySet()){
+            if(s.hasArtist(name))
+                return true;
+        }
+        return false;
     }
 }

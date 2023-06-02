@@ -6,6 +6,8 @@ import CineReviewsPackage.Shows.*;
 import CineReviewsPackage.Shows.Reviews.Review;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Predicate;
 
 public class CineReviewsClass implements CineReviews {
 
@@ -22,6 +24,10 @@ public class CineReviewsClass implements CineReviews {
     private static final String SHOW_HAS_NO_REVIEWS = "Show %s has no reviews.";
     private static final String ARTIST_BIO_EXISTS = "Bio of %s is already available!";
     private static final String ARTIST_NOT_FOUND = "No information about %s!";
+    private static final String NO_SHOW_WITH_CRITERIA = "No show was found within the criteria.";
+    private static final String NO_ARTISTS = "No artists yet!";
+    private static final String NO_COLLABORATIONS = "No collaborations yet!";
+    private static final String NO_AVOIDERS = "It is a small world!";
 
     private final SortedMap<String, Show> shows;
     private final SortedMap<String, Person> persons;
@@ -87,7 +93,7 @@ public class CineReviewsClass implements CineReviews {
             s = new MovieClass(directorArtist, title, durationOrSeasons, certification, year, genres, castArtists);
             directorArtist.addShow(s, "director");
         }
-        if (type.equals("Series")){
+        if (type.equals("Series")) {
             s = new SeriesClass(directorArtist, title, durationOrSeasons, certification, year, genres, castArtists);
             directorArtist.addShow(s, "creator");
         }
@@ -105,17 +111,19 @@ public class CineReviewsClass implements CineReviews {
         int count = 0;
         try {
             count += addArtistInfo(director, null, null);
-        } catch (CineReviewsException ignored){}
-            //If artist is already defined, ignore it.
+        } catch (CineReviewsException ignored) {
+        }
+        //If artist is already defined, ignore it.
         for (String c : cast) {
             try {
                 count += addArtistInfo(c, null, null);
-            }catch (CineReviewsException ignored){}
+            } catch (CineReviewsException ignored) {
+            }
         }
         return count;
     }
 
-    public int addArtistInfo(String name,String birthday, String birthplace) throws CineReviewsException{
+    public int addArtistInfo(String name, String birthday, String birthplace) throws CineReviewsException {
         if (!artists.containsKey(name)) {
             artists.put(name, new Artist(name, birthday, birthplace));
             return 1;
@@ -130,8 +138,8 @@ public class CineReviewsClass implements CineReviews {
         }
     }
 
-    public Artist getArtist(String name) throws CineReviewsException{
-        if(!artists.containsKey(name)) throw new CineReviewsException(String.format(ARTIST_NOT_FOUND, name));
+    public Artist getArtist(String name) throws CineReviewsException {
+        if (!artists.containsKey(name)) throw new CineReviewsException(String.format(ARTIST_NOT_FOUND, name));
         return artists.get(name);
     }
 
@@ -170,15 +178,116 @@ public class CineReviewsClass implements CineReviews {
         return shows.get(showName).getAverageReviews();
     }
 
-    public Iterator<Show> getShowsFromGenres(List<String> genres) {
+    public Iterator<Show> getShowsFromGenres(List<String> genres) throws CineReviewsException {
+        //This was my first time using predicates and lambda expressions, I have little Idea what this does.
+        Predicate<Show> condition = show -> show.containsAllGenres(genres);
+        return getShowsFromCondition(condition);
+    }
+
+    public Iterator<Show> getShowsFromYear(int year) throws CineReviewsException {
+        return getShowsFromCondition(show -> show.getYear() == year);
+    }
+
+    private Iterator<Show> getShowsFromCondition(Predicate<Show> condition) throws CineReviewsException {
         List<Show> toReturn = new ArrayList<>();
 
         for (Show s : shows.values()) {
-            if (s.containsAllGenres(genres))
+            if (condition.test(s))
                 toReturn.add(s);
         }
 
+        if (toReturn.isEmpty()) throw new CineReviewsException(NO_SHOW_WITH_CRITERIA);
         toReturn.sort(new ShowComparator());
         return toReturn.iterator();
+    }
+
+    public Iterator<SortedSet<Artist>> getNoCollaborationSets(AtomicInteger size) throws CineReviewsException {
+        if (artists.isEmpty()) throw new CineReviewsException(NO_ARTISTS);
+
+        List<SortedSet<Artist>> result = new ArrayList<>();
+        int maxSize = 0;
+        for (Artist artist : artists.values()) {
+            List<SortedSet<Artist>> newResult = new ArrayList<>(result);
+            for (SortedSet<Artist> resultSet : result) {
+                if (!hasOverlap(artist, resultSet)) {
+                    SortedSet<Artist> newSet = new TreeSet<>(Comparator.comparing(Artist::getName));
+                    newSet.addAll(resultSet);
+                    newSet.add(artist);
+                    if (newSet.size() > maxSize) {
+                        maxSize = newSet.size();
+                        newResult.clear();
+                    }
+                    if (newSet.size() == maxSize) {
+                        newResult.add(newSet);
+                    }
+                }
+            }
+            SortedSet<Artist> singleSet = new TreeSet<>(Comparator.comparing(Artist::getName));
+            singleSet.add(artist);
+            if (singleSet.size() > maxSize) {
+                maxSize = singleSet.size();
+                newResult.clear();
+            }
+            if (singleSet.size() == maxSize) {
+                newResult.add(singleSet);
+            }
+            result = newResult;
+        }
+        if (result.isEmpty() || maxSize < 2) throw new CineReviewsException(NO_AVOIDERS);
+        size.set(maxSize);
+        return result.iterator();
+    }
+
+    // This method checks if an artist has any shows in common with a set of artists
+    private boolean hasOverlap(Artist artist, Set<Artist> artistSet) {
+        // Iterate over each artist in the set of artists
+        for (Artist s : artistSet) {
+            if(artist.hasWorkedWith(s.getName()))
+                return true;
+        }
+        return false;
+    }
+
+    public Iterator<String> getMostFrequentCollaborators(AtomicInteger maxCollab) throws CineReviewsException {
+        if (artists.isEmpty()) throw new CineReviewsException(NO_ARTISTS);
+
+        Map<String[], Integer> collaborationCount = getCollaborationCounts();
+
+        int maxCollaborations = Collections.max(collaborationCount.values());
+        if (maxCollaborations == 0) throw new CineReviewsException(NO_COLLABORATIONS);
+
+        List<String> mostFrequentCollaborators = new ArrayList<>();
+        for (Map.Entry<String[], Integer> entry : collaborationCount.entrySet()) {
+            if (entry.getValue() == maxCollaborations) {
+                String[] pair = entry.getKey();
+                mostFrequentCollaborators.add(pair[1] + "and" + pair[2]);
+            }
+        }
+
+        maxCollab.set(maxCollaborations);
+        Collections.sort(mostFrequentCollaborators);
+        return mostFrequentCollaborators.iterator();
+    }
+
+    private Map<String[], Integer> getCollaborationCounts() {
+        Map<String[], Integer> collaborationCount = new HashMap<>();
+        List<Artist> artistList = new ArrayList<>(artists.values());
+        for (int i = 0; i < artistList.size(); i++) {
+            for (int j = i + 1; j < artistList.size(); j++) {
+                Artist artist1 = artistList.get(i);
+                Artist artist2 = artistList.get(j);
+                int count = 0;
+                Iterator<Map.Entry<Show, String>> artist1Shows = artist1.getWorkedShows();
+                while (artist1Shows.hasNext()) {
+                    Show show = artist1Shows.next().getKey();
+                    if (show.hasArtist(artist2.getName())) {
+                        count++;
+                    }
+                }
+                String[] pair = {artist1.getName(), artist2.getName()};
+                collaborationCount.put(pair, count);
+            }
+        }
+        return collaborationCount;
     }
 }

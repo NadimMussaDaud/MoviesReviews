@@ -30,4 +30,6 @@ public interface Show {
     public boolean containsAllGenres(List<String> toCheck);
 
     public String getTitle();
+
+    public boolean hasArtist(String name);
 }

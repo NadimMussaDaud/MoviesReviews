@@ -7,11 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="tests 6 and 7 functional.">
+    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="tests 8 and 9 operational.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -61,22 +62,12 @@
       <recent name="C:\Users\Gamer\IdeaProjects\Projecto2\Tests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests.test09">
+  <component name="RunManager" selected="JUnit.Tests.test11">
     <configuration name="Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projecto2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Tests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests.test04" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Projecto2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Tests" />
-      <option name="METHOD_NAME" value="test04" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -111,13 +102,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.test11" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projecto2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="test11" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Tests.test09" />
+        <item itemvalue="JUnit.Tests.test11" />
         <item itemvalue="JUnit.Tests" />
+        <item itemvalue="JUnit.Tests.test09" />
         <item itemvalue="JUnit.Tests.test08" />
         <item itemvalue="JUnit.Tests.test06" />
-        <item itemvalue="JUnit.Tests.test04" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +173,8 @@
       <option name="presentableId" value="Default" />
       <updated>1685631786610</updated>
       <workItem from="1685631788053" duration="1716000" />
-      <workItem from="1685635109396" duration="15659000" />
+      <workItem from="1685635109396" duration="23004000" />
+      <workItem from="1685706445517" duration="15211000" />
     </task>
     <task id="LOCAL-00007" summary="tests 4 and 5 functional.">
       <created>1685645367708</created>
@@ -188,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685654670303</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="tests 8 and 9 operational.">
+      <created>1685658237173</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685658237173</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,12 +235,12 @@
     <MESSAGE value="genre command implemented.&#10;&#10;-show now stores its own title&#10;-added show comparator" />
     <MESSAGE value="tests 4 and 5 functional." />
     <MESSAGE value="tests 6 and 7 functional." />
-    <option name="LAST_COMMIT_MESSAGE" value="tests 6 and 7 functional." />
+    <MESSAGE value="tests 8 and 9 operational." />
+    <option name="LAST_COMMIT_MESSAGE" value="tests 8 and 9 operational." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="CineReviewsPackage.Shows.MovieClass" memberName="genres" />
         <PinnedItemInfo parentTag="CineReviewsPackage.Shows.Artist" memberName="workedShows" />
       </pinned-members>
     </pin-to-top-manager>

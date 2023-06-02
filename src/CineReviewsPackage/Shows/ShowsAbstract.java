@@ -93,4 +93,14 @@ abstract class ShowsAbstract implements Show {
     public String getTitle() {
         return title;
     }
+
+    public boolean hasArtist(String name){
+        if(name.equals(creator.getName())) return true;
+
+        for (Artist a : cast)
+            if(name.equals(a.getName()))
+                return true;
+
+        return false;
+    }
 }
