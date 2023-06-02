@@ -17,14 +17,14 @@ Funcionalidade:
 2. HELP() **DONE**
 3. REGISTER() **DONE**
 4. USERS() **DONE**
-5. MOVIE() Nadim
+5. MOVIE() **DONE**
 6. SERIES() **DONE**
-7. SHOWS() "done" CONFLICT
-8. ARTIST() Nadim
-9. CREDITS()
+7. SHOWS() **DONE**
+8. ARTIST() **DONE**
+9. CREDITS() **DONE**
 10. REVIEW() **DONE**
 11. REVIEWS() **DONE**
-12. GENRE() Lucas
+12. GENRE() **DONE**
 13. RELEASED()
 14. AVOIDERS()
 
