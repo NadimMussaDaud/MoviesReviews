@@ -7,7 +7,6 @@ import CineReviewsPackage.Shows.Reviews.Review;
 import CineReviewsPackage.Shows.Reviews.ReviewClass;
 import CineReviewsPackage.Shows.Reviews.ReviewComparator;
 
-import javax.naming.NameNotFoundException;
 import java.util.*;
 
 abstract class ShowsAbstract implements Show {
@@ -15,11 +14,19 @@ abstract class ShowsAbstract implements Show {
     protected final String certification;
     protected final int year;
     protected final Artist creator;
-    protected List<String> genres;
+    protected final List<String> genres;
     protected final List<Artist> cast;
     protected final SortedSet<Review> reviews;
 
-
+    /**
+     * Constructs a new ShowsAbstract object with the given parameters.
+     * @param creator The creator of the show.
+     * @param title The title of the show.
+     * @param certification The certification of the show.
+     * @param year The year the show was released.
+     * @param genres A list of genres for the show.
+     * @param cast A list of cast members for the show.
+     */
     public ShowsAbstract(Artist creator, String title, String certification, int year, List<String> genres, List<Artist> cast) {
         this.title = title;
         this.certification = certification;

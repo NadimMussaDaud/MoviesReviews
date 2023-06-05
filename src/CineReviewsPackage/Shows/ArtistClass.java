@@ -1,14 +1,23 @@
 package CineReviewsPackage.Shows;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
+/**
+ * Implements the Artist Interface.
+ * @author Lucas Andrade, 64583
+ * @author Nadim Daud, 63529
+ */
 public class ArtistClass implements Artist {
     private final String name;
     private final SortedMap<Show, String> workedShows; //this map's value indicates its role.
     private String birthday,birthplace;
+
+    /**
+     * Constructs a new ArtistClass object with the given parameters.
+     * @param name The name of the artist.
+     * @param birthday The birthday of the artist.
+     * @param birthplace The birthplace of the artist.
+     */
     public ArtistClass(String name, String birthday, String birthplace) {
         this.name = name;
         workedShows = new TreeMap<>(new ShowComparator());
@@ -48,12 +57,19 @@ public class ArtistClass implements Artist {
         return workedShows.entrySet().iterator();
     }
 
-    @Override
-    public boolean hasWorkedWith(String name){
+    public SortedSet<String> collaboratedArtists(){
+        SortedSet<String> artists = new TreeSet<>();
+
         for(Show s : workedShows.keySet()){
-            if(s.hasArtist(name))
-                return true;
+            Iterator<Artist> it = s.getShowsPersons();
+
+            while(it.hasNext()){
+                Artist a = it.next();
+                if(!a.getName().equals(this.getName()))
+                    artists.add(a.getName());
+            }
         }
-        return false;
+
+        return artists;
     }
 }

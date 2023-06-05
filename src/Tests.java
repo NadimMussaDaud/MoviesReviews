@@ -20,7 +20,7 @@ import org.junit.Test;
  * throughout the semester is trivial.
  * In order to use this class you must include the JUnit 4 library in your execution environment.
  * Ask for help in the lab sessions, if necessary!
- *
+ * <p>
  * A classe Tests especifica um conjunto de testes implementado recorrendo 'a ferramenta 
  * JUnit. Estes testes usam como input os ficheiros de teste do Mooshak, gerando, como
  * output, o resultado esperado na execucao desses testes.
@@ -29,6 +29,7 @@ import org.junit.Test;
  * Para poder usar esta classe tem de incluir no seu ambiente de execucao a biblioteca JUnit 4.
  * Peca ajuda nas sessoes de laboratorio, se necessario!
  */
+@SuppressWarnings({"ALL", "UnusedAssignment", "StringOperationCanBeSimplified"})
 public class Tests {
     /**
      * Use the following lines to specify the tests you want to perform.
@@ -37,7 +38,7 @@ public class Tests {
      * result for the test 1_in.txt is 1_out.txt. You do not need to do anything else in the
      * rest of the class. Just configure this sequence of tests! This is already done for
      * this project. For the other projects, you must configure the tests.
-     *
+     * <p>
      * Use as linhas que se seguem para especificar os testes que vai realizar.
      * Neste ficheiro de exemplo, criado para o projecto Gossip, temos 17 testes a realizar.
      * Para cada ficheiro de input, existe um ficheiro de output correspondente. Por exemplo,

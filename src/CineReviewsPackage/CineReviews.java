@@ -23,12 +23,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Nadim Daud, 63529
  */
 public interface CineReviews {
-    /**
-     * Checks if the system has a certain type of user.
-     * @param type The type of user to check for.
-     * @return True if the system has the given type of user, false otherwise.
-     */
-    boolean hasType(String type);
 
     /**
      * Registers a new user in the system.

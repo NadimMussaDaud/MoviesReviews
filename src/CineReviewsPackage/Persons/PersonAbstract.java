@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 abstract class PersonAbstract<T> implements Person {
-    final String name; //storing the name is necessary due to the review sorting process only.
+    private final String name; //storing the name is necessary due to the review sorting process only.
     protected final List<T> media;
 
     public PersonAbstract(String name) {

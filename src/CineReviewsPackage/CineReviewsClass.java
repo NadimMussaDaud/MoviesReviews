@@ -9,6 +9,9 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
+/**
+ *
+ */
 public class CineReviewsClass implements CineReviews {
 
     private static final String UNKNOWN_TYPE = "Unknown user type!";
@@ -33,14 +36,22 @@ public class CineReviewsClass implements CineReviews {
     private final SortedMap<String, Person> persons;
     private final SortedMap<String, Artist> artists;
 
+    /**
+     * Constructs a new CineReviewsClass object with empty TreeMaps for shows, persons, and artists.
+     */
     public CineReviewsClass() {
         shows = new TreeMap<>();
         persons = new TreeMap<>();
         artists = new TreeMap<>();
     }
 
-    @Override
-    public boolean hasType(String type) {
+    /**
+     * Checks if a given type is part of the supported user types.
+     *
+     * @param type is the type to check
+     * @return true if the type is supported, false otherwise.
+     */
+    private boolean hasType(String type) {
         return type.equals("admin") || type.equals("audience") || type.equals("critic");
     }
 
@@ -82,7 +93,6 @@ public class CineReviewsClass implements CineReviews {
 
         int newArtistCount = handleArtists(cast, director);
 
-        //tirar de users todos os artistas recém criados e guardar num array de users
         List<Artist> castArtists = new LinkedList<>();
         for (String a : cast)
             castArtists.add(artists.get(a));
@@ -107,6 +117,13 @@ public class CineReviewsClass implements CineReviews {
         return newArtistCount;
     }
 
+    /**
+     * Adds information about all artists in the show to the system.
+     *
+     * @param cast     A list of cast members to add information for.
+     * @param director The director to add information for.
+     * @return The number of new artists added to the system.
+     */
     private int handleArtists(List<String> cast, String director) {
         int count = 0;
         try {
@@ -188,6 +205,13 @@ public class CineReviewsClass implements CineReviews {
         return getShowsFromCondition(show -> show.getYear() == year);
     }
 
+    /**
+     * Gets an iterator over shows that match a certain condition.
+     *
+     * @param condition The condition to check for in shows.
+     * @return An iterator over shows that match the given condition.
+     * @throws CineReviewsException If no show matches the given condition.
+     */
     private Iterator<Show> getShowsFromCondition(Predicate<Show> condition) throws CineReviewsException {
         List<Show> toReturn = new ArrayList<>();
 
@@ -204,48 +228,75 @@ public class CineReviewsClass implements CineReviews {
     public Iterator<SortedSet<Artist>> getNoCollaborationSets(AtomicInteger size) throws CineReviewsException {
         if (artists.isEmpty()) throw new CineReviewsException(NO_ARTISTS);
 
-        List<SortedSet<Artist>> result = new ArrayList<>();
-        int maxSize = 0;
-        for (Artist artist : artists.values()) {
-            List<SortedSet<Artist>> newResult = new ArrayList<>(result);
-            for (SortedSet<Artist> resultSet : result) {
-                if (!hasOverlap(artist, resultSet)) {
-                    SortedSet<Artist> newSet = new TreeSet<>(Comparator.comparing(Artist::getName));
-                    newSet.addAll(resultSet);
-                    newSet.add(artist);
-                    if (newSet.size() > maxSize) {
-                        maxSize = newSet.size();
-                        newResult.clear();
-                    }
-                    if (newSet.size() == maxSize) {
-                        newResult.add(newSet);
+        SortedSet<SortedSet<Artist>> powerSet = artistsPowerSet();
+        Map<String, SortedSet<String>> collabMatrix = createCollaborationMatrix();
+        SortedSet<SortedSet<Artist>> candidates = new TreeSet<>(new SetComparator());
+
+        for (SortedSet<Artist> subset : powerSet) {
+            boolean hasCollaborated = false;
+            for (Artist artist1 : subset) {
+                for (Artist artist2 : subset) {
+                    if (!artist1.equals(artist2)) {
+                        SortedSet<String> collaborations = collabMatrix.get(artist1.getName());
+                        if (collaborations.contains(artist2.getName())) {
+                            hasCollaborated = true;
+                            break;
+                        }
                     }
                 }
+                if (hasCollaborated) {
+                    break;
+                }
             }
-            SortedSet<Artist> singleSet = new TreeSet<>(Comparator.comparing(Artist::getName));
-            singleSet.add(artist);
-            if (singleSet.size() > maxSize) {
-                maxSize = singleSet.size();
-                newResult.clear();
+            if (!hasCollaborated) {
+                candidates.add(subset);
             }
-            if (singleSet.size() == maxSize) {
-                newResult.add(singleSet);
-            }
-            result = newResult;
         }
-        if (result.isEmpty() || maxSize < 2) throw new CineReviewsException(NO_AVOIDERS);
-        size.set(maxSize);
-        return result.iterator();
+
+        return isolateLargestSets(candidates, size).iterator();
     }
 
-    // This method checks if an artist has any shows in common with a set of artists
-    private boolean hasOverlap(Artist artist, Set<Artist> artistSet) {
-        // Iterate over each artist in the set of artists
-        for (Artist s : artistSet) {
-            if(artist.hasWorkedWith(s.getName()))
-                return true;
+    private SortedSet<SortedSet<Artist>> isolateLargestSets(SortedSet<SortedSet<Artist>> candidates, AtomicInteger size) throws CineReviewsException {
+        int max = 0;
+        SortedSet<SortedSet<Artist>> finalSet = new TreeSet<>(new SetComparator());
+
+        for (SortedSet<Artist> artistSet : candidates) {
+            if (artistSet.size() > max) {
+                max = artistSet.size();
+                finalSet.clear();
+            }
+            if (artistSet.size() == max) {
+                finalSet.add(artistSet);
+            }
         }
-        return false;
+        if (max < 2) throw new CineReviewsException(NO_AVOIDERS);
+        size.set(max);
+        return finalSet;
+    }
+
+    private SortedSet<SortedSet<Artist>> artistsPowerSet() {
+        SortedSet<SortedSet<Artist>> subsets = new TreeSet<>(new SetComparator());
+        subsets.add(new TreeSet<>(Comparator.comparing(Artist::getName)));
+
+        for (Artist artist : artists.values()) {
+            SortedSet<SortedSet<Artist>> current = new TreeSet<>(new SetComparator());
+            for (SortedSet<Artist> set : subsets) {
+                SortedSet<Artist> newSet = new TreeSet<>(set);
+                newSet.add(artist);
+                current.add(newSet);
+            }
+            subsets.addAll(current);
+        }
+        return subsets;
+    }
+
+    private Map<String, SortedSet<String>> createCollaborationMatrix() {
+        Map<String, SortedSet<String>> result = new TreeMap<>();
+
+        for (Map.Entry<String, Artist> m : artists.entrySet())
+            result.put(m.getKey(), m.getValue().collaboratedArtists());
+
+        return result;
     }
 
     public Iterator<String> getMostFrequentCollaborators(AtomicInteger maxCollab) throws CineReviewsException {
@@ -253,20 +304,25 @@ public class CineReviewsClass implements CineReviews {
 
         Map<String[], Integer> collaborationCount = getCollaborationCounts();
 
-        int maxCollaborations = Collections.max(collaborationCount.values());
-        if (maxCollaborations == 0) throw new CineReviewsException(NO_COLLABORATIONS);
+        try {
+            int maxCollaborations = Collections.max(collaborationCount.values());
 
-        List<String> mostFrequentCollaborators = new ArrayList<>();
-        for (Map.Entry<String[], Integer> entry : collaborationCount.entrySet()) {
-            if (entry.getValue() == maxCollaborations) {
-                String[] pair = entry.getKey();
-                mostFrequentCollaborators.add(pair[1] + "and" + pair[2]);
+
+            List<String> mostFrequentCollaborators = new ArrayList<>();
+            for (Map.Entry<String[], Integer> entry : collaborationCount.entrySet()) {
+                if (entry.getValue() == maxCollaborations) {
+                    String[] pair = entry.getKey();
+                    mostFrequentCollaborators.add(pair[0] + " and " + pair[1]);
+                }
             }
-        }
 
-        maxCollab.set(maxCollaborations);
-        Collections.sort(mostFrequentCollaborators);
-        return mostFrequentCollaborators.iterator();
+            maxCollab.set(maxCollaborations);
+            Collections.sort(mostFrequentCollaborators);
+            return mostFrequentCollaborators.iterator();
+
+        } catch (NoSuchElementException n) {
+            throw new CineReviewsException(NO_COLLABORATIONS);
+        }
     }
 
     private Map<String[], Integer> getCollaborationCounts() {

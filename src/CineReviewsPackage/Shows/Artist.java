@@ -2,6 +2,7 @@ package CineReviewsPackage.Shows;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.SortedSet;
 
 /**
  * This interface represents an Artist in the CineReviews project.
@@ -54,11 +55,8 @@ public interface Artist {
     Iterator<Map.Entry<Show, String>> getWorkedShows();
 
     /**
-     * Checks if this Artist has worked with another Artist with a given name
-     *
-     * @param name name to check
-     *
-     *@return true if this Artist has worked with another Artist with a given name
+     * Returns a sorted set of the names of all artists this artist has collaborated with.
+     * @return A sorted set of the names of all artists this artist has collaborated with.
      */
-    boolean hasWorkedWith(String name);
+    SortedSet<String> collaboratedArtists();
 }

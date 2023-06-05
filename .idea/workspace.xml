@@ -7,21 +7,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="tests 10 operational, avoiders and friends command implemented but broken">
-      <change afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ArtistClass.java" afterDir="false" />
+    <list default="true" id="d69a544f-5b3c-4f3d-805f-737de266669c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CineReviewsPackage/SetComparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviews.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/CineReviewsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/CineReviewsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/ShowException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/ShowException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/UserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Exceptions/UserException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/AdminClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/AdminClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/AudienceClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/AudienceClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/CriticClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/CriticClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/PersonAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Persons/PersonAbstract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Show.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ArtistClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ArtistClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/MovieClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/MovieClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/Reviews/ReviewComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/SeriesClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/SeriesClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CineReviewsPackage/Shows/ShowsAbstract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +35,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,18 +55,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Gamer/Desktop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Gamer\IdeaProjects\Projecto2\src" />
@@ -73,22 +78,12 @@
       <recent name="CineReviewsPackage.Shows" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests.test11">
+  <component name="RunManager" selected="JUnit.Tests.test12">
     <configuration name="Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projecto2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Tests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests.test06" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Projecto2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Tests" />
-      <option name="METHOD_NAME" value="test06" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,13 +118,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.test12" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projecto2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="test12" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Tests.test11" />
+        <item itemvalue="JUnit.Tests.test12" />
         <item itemvalue="JUnit.Tests" />
+        <item itemvalue="JUnit.Tests.test11" />
         <item itemvalue="JUnit.Tests.test09" />
         <item itemvalue="JUnit.Tests.test08" />
-        <item itemvalue="JUnit.Tests.test06" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +190,7 @@
       <updated>1685631786610</updated>
       <workItem from="1685631788053" duration="1716000" />
       <workItem from="1685635109396" duration="23004000" />
-      <workItem from="1685706445517" duration="18492000" />
+      <workItem from="1685706445517" duration="28780000" />
     </task>
     <task id="LOCAL-00007" summary="tests 4 and 5 functional.">
       <created>1685645367708</created>
@@ -215,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685729942138</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="comments">
+      <created>1685734873298</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685734873298</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,9 +267,19 @@
     <MESSAGE value="tests 6 and 7 functional." />
     <MESSAGE value="tests 8 and 9 operational." />
     <MESSAGE value="tests 10 operational, avoiders and friends command implemented but broken" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests 10 operational, avoiders and friends command implemented but broken" />
+    <MESSAGE value="comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="comments" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CineReviewsPackage/CineReviewsClass.java</url>
+          <line>302</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="CineReviewsPackage.Shows.Artist" memberName="workedShows" />
