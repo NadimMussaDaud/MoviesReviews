@@ -22,7 +22,7 @@ The **Cinema Review System** provides a platform for users to write and read rev
 - **Java**: The core programming language used to develop the system.
 - **JUnit**: Employed for unit testing to ensure that core functionalities perform as expected.
 - **File I/O**: Used to save and load reviews and movie data between application runs.
-- 
+-
 
 ## **Future Improvements**
 - **GUI Development**: Integrating a graphical user interface to improve user interaction with the system.
